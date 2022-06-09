@@ -3,6 +3,7 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../../helpers/theme';
 
 const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Blaka&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 *,
 *::before,
 *::after {
@@ -24,11 +25,13 @@ html {
   ::selection {
     color: ${({ theme }) => theme.colors.black};
     background: ${({ theme }) => theme.colors.white};
-}}
+}
+}
 
 body {
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
+  font-family: ${({ theme }) => theme.ff.po};
 }
 
 `;
