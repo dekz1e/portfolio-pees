@@ -1,0 +1,15 @@
+export const theme = {
+	colors: {
+		white: '#ffffff',
+		grey: '#dddddd',
+		black: '#111',
+		blackAlt: '#222',
+	},
+	fw: {
+		l: 300,
+		r: 400,
+		m: 500,
+		s: 600,
+		b: 700,
+	},
+};
