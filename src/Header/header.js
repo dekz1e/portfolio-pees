@@ -4,6 +4,7 @@ import { Link } from 'gatsby';
 
 const StyledHeader = styled.header`
 	position: relative;
+	z-index: 2;
 `;
 
 const StyledNav = styled.nav`
@@ -154,7 +155,7 @@ export const Header = () => {
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink to="/projekty" isOpen={isOpen} isScroll={isScroll}>
 							projekty
 						</StyledLink>
 					</StyledItem>
