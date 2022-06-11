@@ -20,15 +20,19 @@ const StyledNav = styled.nav`
 	transition: 0.3s ease-in-out;
 	@media screen and (min-width: 768px) {
 		display: flex;
-		transition: background .5s cubic-bezier(.17,.67,.83,.67);
-		background: ${({ theme, isScroll }) =>
-			isScroll ? theme.colors.white : 'transparent'};
+		transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+		background: ${({ isScroll }) =>
+			isScroll ? 'rgba(255, 255, 255, .9)' : 'transparent'};
 		height: 100px;
 		padding: 0 5vw;
 		animation: animate 1s linear;
 		border-radius: 0 0 100% 100%;
 		-webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
 		clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
+		box-shadow: ${({ isScroll }) =>
+			isScroll ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none'};
+		backdrop-filter: blur(5.4px);
+		-webkit-backdrop-filter: blur(5.4px);
 	}
 
 	@media screen and (min-width: 1280px) {
