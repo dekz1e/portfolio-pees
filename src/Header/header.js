@@ -19,14 +19,28 @@ const StyledNav = styled.nav`
 	transition: 0.3s ease-in-out;
 	@media screen and (min-width: 768px) {
 		display: flex;
+		transition: background .5s cubic-bezier(.17,.67,.83,.67);
 		background: ${({ theme, isScroll }) =>
 			isScroll ? theme.colors.white : 'transparent'};
 		height: 100px;
 		padding: 0 5vw;
+		animation: animate 1s linear;
+		border-radius: 0 0 100% 100%;
+		-webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
+		clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
 	}
 
 	@media screen and (min-width: 1280px) {
 		padding: 0 10vw;
+	}
+
+	@keyframes animate {
+		0% {
+			top: -100%;
+		}
+		70% {
+			top: 0;
+		}
 	}
 `;
 
@@ -63,7 +77,8 @@ const StyledLink = styled(Link)`
 		isOpen || isScroll ? theme.colors.black : theme.colors.white};
 	transition: all 0.3s ease-in-out;
 	&:hover {
-		color: ${({ theme, isScroll, isOpen }) => isScroll || isOpen ? theme.colors.whiteAlt : theme.colors.blackAlt};
+		color: ${({ theme, isScroll, isOpen }) =>
+			isScroll || isOpen ? theme.colors.whiteAlt : theme.colors.blackAlt};
 	}
 `;
 
@@ -119,7 +134,8 @@ const StyledLogo = styled(Link)`
 		display: block;
 
 		&:hover {
-			color: ${({ theme, isScroll }) => isScroll ? theme.colors.whiteAlt : theme.colors.blackAlt};
+			color: ${({ theme, isScroll }) =>
+				isScroll ? theme.colors.whiteAlt : theme.colors.blackAlt};
 		}
 	}
 `;
