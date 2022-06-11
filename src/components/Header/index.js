@@ -11,6 +11,7 @@ const StyledNav = styled.nav`
 	width: 100%;
 	height: 100vh;
 	position: fixed;
+	top: 0;
 	background: ${({ theme }) => theme.colors.white};
 	display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 	align-items: center;
@@ -140,7 +141,7 @@ const StyledLogo = styled(Link)`
 	}
 `;
 
-export const Header = () => {
+const Header = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const [isScroll, setIsScroll] = useState(false);
 
@@ -176,7 +177,7 @@ export const Header = () => {
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink to="/kontakt" isOpen={isOpen} isScroll={isScroll}>
 							kontakt
 						</StyledLink>
 					</StyledItem>
@@ -189,3 +190,5 @@ export const Header = () => {
 		</StyledHeader>
 	);
 };
+
+export default Header;

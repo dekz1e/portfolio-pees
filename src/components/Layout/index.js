@@ -32,6 +32,7 @@ body {
   background-color: ${({ theme }) => theme.colors.black};
   color: ${({ theme }) => theme.colors.white};
   font-family: ${({ theme }) => theme.ff.po};
+  position: relative;
 }
 
 `;

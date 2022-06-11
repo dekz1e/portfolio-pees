@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-import Layout from '../components/Layout/layout';
+import Layout from '../components/Layout';
 import { gsap } from 'gsap-trial';
 import styled from 'styled-components';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import { graphql, Link } from 'gatsby';
-import { Header } from '../Header/header';
+import Header from '../components/Header';
 
 const StyledWrapper = styled.div`
 	overflow: hidden;
