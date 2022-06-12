@@ -174,7 +174,7 @@ const Kontakt = () => {
 		<Layout>
 			<Header />
 			<StyledContainer>
-				<StyledTitle>Odzywaj się śmiało!</StyledTitle>
+				<StyledTitle>Odezwij się do nas!</StyledTitle>
 				<StyledInfoWrapper>
 					<StyledWrapper>
 						<StyledDataHeading>Pozostańmy w kontakcie</StyledDataHeading>

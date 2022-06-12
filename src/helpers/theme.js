@@ -24,5 +24,8 @@ export const theme = {
 		pd: `'Playfair Display', serif`,
 		po: `'Poppins', sans-serif`,
 		bl: `'Blaka', cursive`,
+		sg: `'Space Grotesk', sans-serif`,
+		bai: `'Bai Jamjuree', sans-serif`,
+		bm: `'Bodoni Moda', serif`,
 	},
 };

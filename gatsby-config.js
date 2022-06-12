@@ -8,5 +8,5 @@ module.exports = {
     options: {
       "apiToken": "e67639407efa38257ebca8488ab9e9"
     }
-  }, "gatsby-plugin-styled-components"]
+  }, "gatsby-plugin-styled-components", ]
 };

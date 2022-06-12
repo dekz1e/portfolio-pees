@@ -4,15 +4,15 @@ import { Link } from 'gatsby';
 
 const StyledHeader = styled.header`
 	position: relative;
-	z-index: 2;
+	z-index: 10;
 `;
 
 const StyledNav = styled.nav`
 	width: 100%;
 	height: 100vh;
-	position: fixed;
+	position: absolute;
 	top: 0;
-	background: ${({ theme }) => theme.colors.white};
+	background: ${({ theme, isOpen }) => isOpen && theme.colors.white};
 	display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 	align-items: center;
 	justify-content: center;
@@ -20,19 +20,19 @@ const StyledNav = styled.nav`
 	transition: 0.3s ease-in-out;
 	@media screen and (min-width: 768px) {
 		display: flex;
-		transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-		background: ${({ isScroll }) =>
-			isScroll ? 'rgba(255, 255, 255, .9)' : 'transparent'};
+		/* transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67); */
+		/* background: ${({ isScroll }) =>
+			isScroll ? 'rgba(255, 255, 255, .9)' : 'transparent'}; */
 		height: 100px;
 		padding: 0 5vw;
-		animation: animate 1s linear;
+		/* animation: animate 1s linear;
 		border-radius: 0 0 100% 100%;
 		-webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
 		clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
 		box-shadow: ${({ isScroll }) =>
 			isScroll ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none'};
-		backdrop-filter: blur(5.4px);
-		-webkit-backdrop-filter: blur(5.4px);
+		backdrop-filter: &{({isScroll}) => isScroll ? blur(5.4px) : 'none'};
+		-webkit-backdrop-filter: &{({isScroll}) => isScroll ? blur(5.4px) : 'none'}; */
 	}
 
 	@media screen and (min-width: 1280px) {
@@ -79,11 +79,11 @@ const StyledItem = styled.li`
 const StyledLink = styled(Link)`
 	text-decoration: none;
 	color: ${({ theme, isOpen, isScroll }) =>
-		isOpen || isScroll ? theme.colors.black : theme.colors.white};
+		isOpen ? theme.colors.black : theme.colors.white};
 	transition: all 0.3s ease-in-out;
 	&:hover {
 		color: ${({ theme, isScroll, isOpen }) =>
-			isScroll || isOpen ? theme.colors.whiteAlt : theme.colors.blackAlt};
+			isOpen ? theme.colors.whiteAlt : theme.colors.blackAlt};
 	}
 `;
 
@@ -131,8 +131,7 @@ const StyledLogo = styled(Link)`
 	font-family: ${({ theme }) => theme.ff.bl};
 	display: none;
 	text-decoration: none;
-	color: ${({ theme, isScroll }) =>
-		isScroll ? theme.colors.black : theme.colors.white};
+	color: ${({ theme, isScroll }) => theme.colors.white};
 	transition: 0.3s ease-in-out;
 
 	@media screen and (min-width: 768px) {
@@ -151,7 +150,6 @@ const Header = () => {
 
 	useEffect(() => {
 		window.addEventListener('scroll', () => {
-			console.log(window.scrollY);
 			if (window.scrollY > 50) {
 				setIsScroll(true);
 			} else {
