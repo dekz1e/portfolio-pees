@@ -120,7 +120,7 @@ const StyledImg = styled.img`
 	object-fit: cover;
 `;
 
-const Projekty = ({
+const Realizacje = ({
 	data: {
 		allDatoCmsProject: { nodes },
 	},
@@ -142,12 +142,12 @@ const Projekty = ({
 	return (
 		<Layout>
 			<Header />
-			<StyledHeading>Nasze projekty</StyledHeading>
+			<StyledHeading>Nasze realizacje</StyledHeading>
 			<StyledOutlineHeading aria-hidden="true">
-				Nasze projekty
+				Nasze realizacje
 			</StyledOutlineHeading>
 			<StyledFilterHeading aria-hidden="true">
-				Nasze projekty
+				Nasze realizacje
 			</StyledFilterHeading>
 
 			<StyledWrapper id="wrapper">
@@ -168,7 +168,7 @@ const Projekty = ({
 	);
 };
 
-export default Projekty;
+export default Realizacje;
 
 export const query = graphql`
 	query {

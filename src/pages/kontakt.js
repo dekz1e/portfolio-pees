@@ -1,11 +1,13 @@
-import React from 'react';
-import Layout from '../components/Layout';
-import Header from '../components/Header';
+import gsap from 'gsap-trial';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import SplitText from 'gsap-trial/SplitText';
+import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
+import Header from '../components/Header';
+import Layout from '../components/Layout';
 
 const StyledContainer = styled.section`
 	padding: 0 5vw;
-	margin: 100px 0;
 	display: grid;
 	grid-template-columns: 1fr;
 	place-items: start;
@@ -21,74 +23,90 @@ const StyledContainer = styled.section`
 	}
 `;
 
-const StyledTitle = styled.h1`
-	font-size: 10em;
-	word-break: break-all;
-	color: transparent;
-	-webkit-text-stroke: 2px ${({ theme }) => theme.colors.whiteAlt};
-	line-height: 1.2;
-	@media screen and (min-width: 450px) {
-		font-size: 11em;
+const StyledTitle = styled.div`
+	margin-top: 100px;
+	& > div {
+		font-size: 10em;
+		background: linear-gradient(
+			to right,
+			rgb(255, 255, 255) 50%,
+			rgb(37, 37, 37) 50%
+		);
+		background-size: 200% 100%;
+		background-position-x: 100%;
+		color: transparent;
+		background-clip: text;
+		-webkit-background-clip: text;
+		line-height: 1.1;
+		margin: 0;
+
+		@media screen and (min-width: 450px) {
+			font-size: 11em;
+		}
+
+		@media screen and (min-width: 500px) {
+			font-size: 12em;
+		}
+
+		@media screen and (min-width: 550px) {
+			font-size: 13em;
+		}
+		@media screen and (min-width: 600px) {
+			font-size: 14em;
+		}
+		@media screen and (min-width: 640px) {
+			font-size: 15em;
+		}
+
+		@media screen and (min-width: 690px) {
+			font-size: 16em;
+		}
+
+		@media screen and (min-width: 735px) {
+			font-size: 17em;
+		}
+
+		@media screen and (min-width: 768px) {
+			grid-column: 1/2;
+			font-size: 10rem;
+		}
+
+		@media screen and (min-width: 950px) {
+			font-size: 11em;
+		}
+
+		@media screen and (min-width: 1040px) {
+			font-size: 12em;
+		}
+		@media screen and (min-width: 1140px) {
+			font-size: 13em;
+		}
+		@media screen and (min-width: 1230px) {
+			font-size: 14em;
+		}
+
+		@media screen and (min-width: 1490px) {
+			font-size: 15em;
+		}
+		@media screen and (min-width: 1590px) {
+			font-size: 16em;
+		}
+		@media screen and (min-width: 1690px) {
+			font-size: 17em;
+		}
+		@media screen and (min-width: 1790px) {
+			font-size: 18em;
+		}
+		@media screen and (min-width: 1890px) {
+			font-size: 19em;
+		}
+		@media screen and (min-width: 1990px) {
+			font-size: 20em;
+		}
 	}
 
-	@media screen and (min-width: 500px) {
-		font-size: 12em;
-	}
-
-	@media screen and (min-width: 550px) {
-		font-size: 13em;
-	}
-	@media screen and (min-width: 600px) {
-		font-size: 14em;
-	}
-	@media screen and (min-width: 640px) {
-		font-size: 15em;
-	}
-
-	@media screen and (min-width: 690px) {
-		font-size: 16em;
-	}
-
-	@media screen and (min-width: 735px) {
-		font-size: 17em;
-	}
-
-	@media screen and (min-width: 768px) {
-		grid-column: 1/2;
-		font-size: 10rem;
-	}
-
-	@media screen and (min-width: 950px) {
-		font-size: 11em;
-	}
-
-	@media screen and (min-width: 1040px) {
-		font-size: 12em;
-	}
-	@media screen and (min-width: 1140px) {
-		font-size: 13em;
-	}
-	@media screen and (min-width: 1230px) {
-		font-size: 14em;
-	}
-
-	@media screen and (min-width: 1490px) {
-		font-size: 15em;
-	}
-	@media screen and (min-width: 1590px) {
-		font-size: 16em;
-	}
-	@media screen and (min-width: 1690px) {
-		font-size: 17em;
-	}
-	@media screen and (min-width: 1790px) {
-		font-size: 18em;
-	}
-	@media screen and (min-width: 1890px) {
-		font-size: 19em;
-	}
-	@media screen and (min-width: 1990px) {
-		font-size: 20em;
+	wbr {
+		display: none;
 	}
 `;
 
@@ -135,7 +153,7 @@ const StyledDetails = styled.div`
 	font-size: ${({ theme }) => theme.fs.xs};
 	p:nth-child(1) {
 		font-weight: ${({ theme }) => theme.fw.r};
-		margin-bottom: .5rem;
+		margin-bottom: 0.5rem;
 		transition: 0.2s ease-in-out;
 
 		&:hover {
@@ -170,11 +188,40 @@ const StyledSocials = styled.div`
 `;
 
 const Kontakt = () => {
+	const ref = useRef(null);
+	useEffect(() => {
+		gsap.config({ trialWarn: false });
+		gsap.registerPlugin(ScrollTrigger, SplitText);
+		const split = new SplitText(ref.current, {
+			type: 'lines',
+		});
+
+		split.lines.forEach((target) => {
+			gsap.to(target, {
+				backgroundPositionX: 0,
+				ease: 'none',
+				scrollTrigger: {
+					trigger: target,
+					scrub: 1,
+					start: 'top center',
+					end: "bottom center",
+				},
+			});
+		});
+	}, []);
+
 	return (
 		<Layout>
 			<Header />
 			<StyledContainer>
-				<StyledTitle>Odezwij się do nas!</StyledTitle>
+				<StyledTitle ref={ref}>
+					Ode
+					<wbr />
+					zwij
+					<wbr /> się
+					<wbr /> do
+					<wbr /> nas!
+				</StyledTitle>
 				<StyledInfoWrapper>
 					<StyledWrapper>
 						<StyledDataHeading>Pozostańmy w kontakcie</StyledDataHeading>

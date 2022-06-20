@@ -174,8 +174,8 @@ const Header = () => {
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/projekty" isOpen={isOpen} isScroll={isScroll}>
-							projekty
+						<StyledLink to="/realizacje" isOpen={isOpen} isScroll={isScroll}>
+							realizacje
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
