@@ -174,13 +174,13 @@ const StyledFooterWrapper = styled.section`
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem 0;
-	background-color: ${({theme}) => theme.colors.white};
-	color: ${({theme}) => theme.colors.black};
+	background-color: ${({ theme }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors.black};
 `;
 
 const StyledFooterSectionHeader = styled(StyledAboutSectionHeader)`
 	text-transform: uppercase;
-	color: ${({theme}) => theme.colors.blackAlt};
+	color: ${({ theme }) => theme.colors.blackAlt};
 `;
 
 const StyledFooterTitle = styled.h1`
@@ -298,7 +298,7 @@ const Projekt = ({
 						<div className="panel purple"></div>
 					</div>
 				</section>
-				<StyledFooterWrapper>
+				<StyledFooterWrapper id="footer">
 					<StyledFooterSectionHeader>Made in</StyledFooterSectionHeader>
 					<StyledFooterTitle>THAIS</StyledFooterTitle>
 				</StyledFooterWrapper>

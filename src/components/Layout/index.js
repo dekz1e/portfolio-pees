@@ -25,7 +25,30 @@ html {
     color: ${({ theme }) => theme.colors.black};
     background: ${({ theme }) => theme.colors.white};
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
 }
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: ${({ theme }) => theme.colors.black};
+  border-radius: 100px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: ${({ theme }) => theme.colors.white};
+  border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: ${({ theme }) => theme.colors.whiteAlt};
+}
+}
+
 
 body {
   background-color: ${({ theme }) => theme.colors.black};

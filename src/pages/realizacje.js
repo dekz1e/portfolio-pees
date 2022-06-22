@@ -26,17 +26,15 @@ const StyledContent = styled.section`
 const StyledHeading = styled.h1`
 	position: fixed;
 	top: 50vh;
-	font-family: ${({ theme }) => theme.ff.pd};
+	font-family: ${({ theme }) => theme.ff.bai};
 	font-weight: ${({ theme }) => theme.fw.bold};
 	font-style: normal;
-	font-size: 5em;
+	font-size: 7em;
 	text-align: center;
 	width: 100%;
 	transform: translateY(-100%);
-	z-index: 2;
 	color: white;
-	-webkit-text-stroke-width: 1.5px;
-	-webkit-text-stroke-color: white;
+	letter-spacing: 3px;
 	z-index: -2;
 `;
 
@@ -60,8 +58,8 @@ const StyledImagesWrapper = styled.section`
 	margin: 0 auto;
 	height: min(100%, 150vh);
 	display: grid;
-	grid-template-columns: repeat(20, 2%);
-	grid-template-rows: repeat(30, 3%);
+	grid-template-columns: repeat(20, 4%);
+	grid-template-rows: repeat(30, 4%);
 	justify-content: center;
 	justify-items: center;
 	align-items: center;

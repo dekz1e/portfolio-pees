@@ -14,7 +14,6 @@ const StyledContainer = styled.section`
 	gap: 2rem 0;
 
 	@media screen and (min-width: 768px) {
-		grid-template-columns: 1fr 1fr;
 		gap: 0 2rem;
 	}
 
@@ -23,8 +22,9 @@ const StyledContainer = styled.section`
 	}
 `;
 
-const StyledTitle = styled.div`
-	margin-top: 100px;
+const StyledTitle = styled.p`
+	margin: 100px 0;
+	font-weight: ${({ theme }) => theme.fw.s};
 	& > div {
 		font-size: 10em;
 		background: linear-gradient(
@@ -32,13 +32,12 @@ const StyledTitle = styled.div`
 			rgb(255, 255, 255) 50%,
 			rgb(37, 37, 37) 50%
 		);
-		background-size: 200% 100%;
-		background-position-x: 100%;
+		background-size: 300% 100%;
+		background-position-x: 85%;
 		color: transparent;
 		background-clip: text;
 		-webkit-background-clip: text;
 		line-height: 1.1;
-		margin: 0;
 
 		@media screen and (min-width: 450px) {
 			font-size: 11em;
@@ -111,16 +110,16 @@ const StyledTitle = styled.div`
 `;
 
 const StyledInfoWrapper = styled.div`
-	display: grid;
-	grid-template-columns: 1fr;
-	place-items: start;
-	gap: 2rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 3rem 0;
+	margin-bottom: 100px;
 
 	@media screen and (min-width: 768px) {
-		position: fixed;
-		right: 5vw;
-		top: 50%;
-		transform: translateY(-50%);
+		width: 100%;
+		gap: 0 5rem;
+		flex-direction: row;
+		justify-content: flex-end;
 	}
 `;
 
@@ -131,7 +130,7 @@ const StyledWrapper = styled.div`
 `;
 
 const StyledDataHeading = styled.h2`
-	font-weight: ${({ theme }) => theme.fw.r};
+	font-weight: ${({ theme }) => theme.fw.m};
 	font-size: ${({ theme }) => theme.fs.xs};
 	text-transform: uppercase;
 	letter-spacing: 2px;
@@ -155,6 +154,7 @@ const StyledDetails = styled.div`
 		font-weight: ${({ theme }) => theme.fw.r};
 		margin-bottom: 0.5rem;
 		transition: 0.2s ease-in-out;
+		cursor: pointer;
 
 		&:hover {
 			color: ${({ theme }) => theme.colors.white};
@@ -204,7 +204,7 @@ const Kontakt = () => {
 					trigger: target,
 					scrub: 1,
 					start: 'top center',
-					end: "bottom center",
+					end: 'bottom center',
 				},
 			});
 		});
