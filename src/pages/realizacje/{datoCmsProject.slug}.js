@@ -5,7 +5,6 @@ import Header from '../../components/Header';
 import Layout from '../../components/Layout';
 import gsap from 'gsap-trial';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import Scrollbar from 'smooth-scrollbar';
 import './style.css';
 
 const StyledContainer = styled.section`
@@ -174,7 +173,7 @@ const StyledFooterWrapper = styled.section`
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem 0;
-	background-color: ${({ theme }) => theme.colors.white};
+	/* background-color: ${({ theme }) => theme.colors.white}; */
 	color: ${({ theme }) => theme.colors.black};
 `;
 

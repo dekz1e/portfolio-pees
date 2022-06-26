@@ -1,5 +1,5 @@
 import React from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import styled, { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from '../../helpers/theme';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 html {
+  height: 100%;
   font-size: 16px;
   scroll-behavior: smooth;
 
@@ -51,11 +52,33 @@ html {
 
 
 body {
-  background-color: ${({ theme }) => theme.colors.black};
+  /* background-size: 300% 100%;
+  background-color: #d4418e;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
+  background-repeat: no-repeat;
+  background: url(https://grainy-gradients.vercel.app/noise.svg); */
+  background-color: #d4418e;
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%),
+    url(https://grainy-gradients.vercel.app/noise.svg);
+  animation: AnimateBG 20s ease infinite;
   color: ${({ theme }) => theme.colors.white};
   font-family: 'Poppins', sans-serif;
   position: relative; 
   overflow-x: hidden;
+  margin: 0;
+  background-attachment: fixed;
+
+  @media screen and (min-width: 1024px) {
+    padding: 0 10vw;
+  }
+}
+
+@keyframes AnimateBG { 
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 
 `;

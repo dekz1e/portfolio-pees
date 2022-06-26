@@ -3,21 +3,15 @@ import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import SplitText from 'gsap-trial/SplitText';
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import Header from '../components/Header';
-import Layout from '../components/Layout';
-import Realizacje from './realizacje';
 
 const StyledContainer = styled.section`
-	padding: 0 5vw;
+	width: 100%;
 	display: grid;
 	grid-template-columns: 1fr;
 	place-items: start;
-	gap: 2rem 0;
+	gap: 5rem 0;
 	font-family: ${({ theme }) => theme.ff.sg};
-
-	@media screen and (min-width: 768px) {
-		gap: 0 2rem;
-	}
+	padding: 0 5vw;
 
 	@media screen and (min-width: 1280px) {
 		padding: 0 10vw;
@@ -25,11 +19,10 @@ const StyledContainer = styled.section`
 `;
 
 const StyledTitle = styled.p`
-	margin: 100px 0;
 	font-weight: ${({ theme }) => theme.fw.s};
 	font-family: ${({ theme }) => theme.ff.bai};
 	& > div {
-		font-size: 10em;
+		font-size: calc(${({ theme }) => theme.fs.xl}*5);
 		background: linear-gradient(
 			to right,
 			#ffff 50%,
@@ -42,68 +35,12 @@ const StyledTitle = styled.p`
 		-webkit-background-clip: text;
 		line-height: 1.1;
 
-		@media screen and (min-width: 450px) {
-			font-size: 11em;
-		}
-
-		@media screen and (min-width: 500px) {
-			font-size: 12em;
-		}
-
-		@media screen and (min-width: 550px) {
-			font-size: 13em;
-		}
-		@media screen and (min-width: 600px) {
-			font-size: 14em;
-		}
-		@media screen and (min-width: 640px) {
-			font-size: 15em;
-		}
-
-		@media screen and (min-width: 690px) {
-			font-size: 16em;
-		}
-
-		@media screen and (min-width: 735px) {
-			font-size: 17em;
-		}
-
 		@media screen and (min-width: 768px) {
-			grid-column: 1/2;
-			font-size: 10rem;
+			font-size: calc(${({ theme }) => theme.fs.xl}*6);
 		}
 
-		@media screen and (min-width: 950px) {
-			font-size: 11em;
-		}
-
-		@media screen and (min-width: 1040px) {
-			font-size: 12em;
-		}
-		@media screen and (min-width: 1140px) {
-			font-size: 13em;
-		}
 		@media screen and (min-width: 1230px) {
-			font-size: 14em;
-		}
-
-		@media screen and (min-width: 1490px) {
-			font-size: 15em;
-		}
-		@media screen and (min-width: 1590px) {
-			font-size: 16em;
-		}
-		@media screen and (min-width: 1690px) {
-			font-size: 17em;
-		}
-		@media screen and (min-width: 1790px) {
-			font-size: 18em;
-		}
-		@media screen and (min-width: 1890px) {
-			font-size: 19em;
-		}
-		@media screen and (min-width: 1990px) {
-			font-size: 20em;
+			font-size: calc(${({ theme }) => theme.fs.xl}*8);
 		}
 	}
 
@@ -140,10 +77,6 @@ const StyledDataHeading = styled.h2`
 	@media screen and (min-width: 550px) {
 		font-size: ${({ theme }) => theme.fs.s};
 	}
-
-	@media screen and (min-width: 768px) {
-		font-size: ${({ theme }) => theme.fs.xs};
-	}
 `;
 
 const StyledDetails = styled.div`
@@ -154,7 +87,7 @@ const StyledDetails = styled.div`
 	font-weight: ${({ theme }) => theme.fw.l};
 	font-size: ${({ theme }) => theme.fs.xs};
 	p:nth-child(1) {
-		font-weight: ${({ theme }) => theme.fw.r};
+		font-weight: ${({ theme }) => theme.fw.m};
 		margin-bottom: 0.5rem;
 		transition: 0.2s ease-in-out;
 		cursor: pointer;
@@ -190,8 +123,9 @@ const StyledSocials = styled.div`
 	}
 `;
 
-const Kontakt = () => {
+export const Kontakt = () => {
 	const ref = useRef(null);
+	const detailsRef = useRef(null);
 	useEffect(() => {
 		gsap.config({ trialWarn: false });
 		gsap.registerPlugin(ScrollTrigger, SplitText);
@@ -199,7 +133,34 @@ const Kontakt = () => {
 			type: 'lines',
 		});
 
+		gsap.from(detailsRef.current, {
+			duration: 1,
+			y: 100,
+			autoAlpha: 0,
+			ease: 'inOut',
+			stagger: 0.05,
+			scrollTrigger: {
+				trigger: detailsRef.current,
+				scrub: 1,
+				start: 'top bottom',
+				end: 'bottom bottom',
+			},
+		});
+
 		split.lines.forEach((target) => {
+			gsap.from(target, {
+				duration: 0.25,
+				y: -200,
+				autoAlpha: 0,
+				ease: 'inOut',
+				stagger: 0.05,
+				scrollTrigger: {
+					trigger: target,
+					scrub: 1,
+					start: 'top center',
+					end: 'bottom center',
+				},
+			});
 			gsap.to(target, {
 				backgroundPositionX: 0,
 				ease: 'none',
@@ -212,11 +173,9 @@ const Kontakt = () => {
 			});
 		});
 	}, []);
-
 	return (
-		<Layout>
-			<Header />
-			<StyledContainer>
+		<>
+			<StyledContainer id="kontakt">
 				<StyledTitle ref={ref}>
 					Ode
 					<wbr />
@@ -225,7 +184,7 @@ const Kontakt = () => {
 					<wbr /> do
 					<wbr /> nas!
 				</StyledTitle>
-				<StyledInfoWrapper>
+				<StyledInfoWrapper ref={detailsRef}>
 					<StyledWrapper>
 						<StyledDataHeading>Pozostańmy w kontakcie</StyledDataHeading>
 						<StyledDetails>
@@ -271,8 +230,6 @@ const Kontakt = () => {
 					</StyledWrapper>
 				</StyledInfoWrapper>
 			</StyledContainer>
-		</Layout>
+		</>
 	);
 };
-
-export default Kontakt;

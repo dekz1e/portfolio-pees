@@ -29,13 +29,21 @@ const StyledHeading = styled.h1`
 	font-family: ${({ theme }) => theme.ff.bai};
 	font-weight: ${({ theme }) => theme.fw.bold};
 	font-style: normal;
-	font-size: 7em;
+	font-size: 5em;
 	text-align: center;
 	width: 100%;
 	transform: translateY(-100%);
 	color: white;
 	letter-spacing: 3px;
 	z-index: -2;
+
+	@media screen and (min-width: 1024px){
+		font-size: 6em;
+	}
+
+	@media screen and (min-width: 1280px){
+		font-size: 7em;
+	}
 `;
 
 const StyledOutlineHeading = styled(StyledHeading)`
@@ -123,8 +131,8 @@ const Realizacje = ({
 		allDatoCmsProject: { nodes },
 	},
 }) => {
-	gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 		let skewSetter = gsap.quickTo('img', 'skewY'), // fast
 			clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
 
@@ -152,7 +160,7 @@ const Realizacje = ({
 				<StyledContent id="content">
 					<StyledImagesWrapper>
 						{nodes.map((item, index) => (
-							<StyledLink to={`/projekty/${item.slug}`}>
+							<StyledLink to={`/realizacje/${item.slug}`}>
 								<StyledImg
 									data-speed={Math.floor(Math.random() + 0.2)}
 									src={item.image.url}

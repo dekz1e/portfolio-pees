@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Link } from 'gatsby';
+import { AnchorLink } from 'gatsby-plugin-anchor-links';
 
 const StyledHeader = styled.header`
 	position: relative;
@@ -10,7 +11,7 @@ const StyledHeader = styled.header`
 const StyledNav = styled.nav`
 	width: 100%;
 	height: 100vh;
-	position: absolute;
+	position: fixed;
 	top: 0;
 	background: ${({ theme, isOpen }) => isOpen && theme.colors.white};
 	display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
@@ -20,19 +21,17 @@ const StyledNav = styled.nav`
 	transition: 0.3s ease-in-out;
 	@media screen and (min-width: 768px) {
 		display: flex;
-		/* transition: all 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67); */
-		/* background: ${({ isScroll }) =>
-			isScroll ? 'rgba(255, 255, 255, .9)' : 'transparent'}; */
 		height: 100px;
 		padding: 0 5vw;
-		/* animation: animate 1s linear;
+		position: fixed;
+		left: 0;
+		right: 0;
+		background:  'transparent';
+		/* -webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
 		border-radius: 0 0 100% 100%;
 		-webkit-clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
-		clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0);
-		box-shadow: ${({ isScroll }) =>
-			isScroll ? '0 4px 30px rgba(0, 0, 0, 0.1)' : 'none'};
-		backdrop-filter: &{({isScroll}) => isScroll ? blur(5.4px) : 'none'};
-		-webkit-backdrop-filter: &{({isScroll}) => isScroll ? blur(5.4px) : 'none'}; */
+		clip-path: polygon(0 0, 0 100%, 100% 100%, 100% 0, 100% 0); */
 	}
 
 	@media screen and (min-width: 1280px) {
@@ -76,14 +75,13 @@ const StyledItem = styled.li`
 	}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AnchorLink)`
 	text-decoration: none;
-	color: ${({ theme, isOpen, isScroll }) =>
+	color: ${({ theme, isOpen }) =>
 		isOpen ? theme.colors.black : theme.colors.white};
 	transition: all 0.3s ease-in-out;
 	&:hover {
-		color: ${({ theme, isScroll, isOpen }) =>
-			isOpen ? theme.colors.whiteAlt : theme.colors.blackAlt};
+		color: ${({ theme }) => theme.colors.black};
 	}
 `;
 
@@ -127,11 +125,12 @@ const StyledHamburgerIcon = styled.div`
 `;
 
 const StyledLogo = styled(Link)`
-	font-size: ${({ theme }) => theme.fs.m};
-	font-family: ${({ theme }) => theme.ff.bl};
+	font-size: ${({ theme }) => theme.fs.s};
+	font-family: ${({ theme }) => theme.ff.bai};
+	font-weight: ${({ theme }) => theme.fw.b};
 	display: none;
 	text-decoration: none;
-	color: ${({ theme, isScroll }) => theme.colors.white};
+	color: ${({ theme }) => theme.colors.white};
 	transition: 0.3s ease-in-out;
 
 	@media screen and (min-width: 768px) {
@@ -164,22 +163,22 @@ const Header = () => {
 	return (
 		<StyledHeader>
 			<StyledNav isOpen={isOpen} isScroll={isScroll}>
-				<StyledLogo to="/" isScroll={isScroll}>
+				<StyledLogo to="/#home" isScroll={isScroll}>
 					PEES
 				</StyledLogo>
 				<StyledList isOpen={isOpen}>
 					<StyledItem>
-						<StyledLink to="/" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink to="/#home" isOpen={isOpen} isScroll={isScroll}>
 							strona główna
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/realizacje" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink to="/#realizacje" isOpen={isOpen} isScroll={isScroll}>
 							realizacje
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/kontakt" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink to="/#kontakt" isOpen={isOpen} isScroll={isScroll}>
 							kontakt
 						</StyledLink>
 					</StyledItem>
