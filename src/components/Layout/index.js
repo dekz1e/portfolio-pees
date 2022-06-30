@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 html {
   height: 100%;
   font-size: 16px;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 
   ::-moz-selection {
     /* Code for Firefox */
@@ -52,11 +52,6 @@ html {
 
 
 body {
-  /* background-size: 300% 100%;
-  background-color: #d4418e;
-  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%);
-  background-repeat: no-repeat;
-  background: url(https://grainy-gradients.vercel.app/noise.svg); */
   background-color: #d4418e;
   background-size: 300% 100%;
   background-repeat: no-repeat;
@@ -69,6 +64,7 @@ body {
   overflow-x: hidden;
   margin: 0;
   background-attachment: fixed;
+  padding: 0 5vw;
 
   @media screen and (min-width: 1024px) {
     padding: 0 10vw;

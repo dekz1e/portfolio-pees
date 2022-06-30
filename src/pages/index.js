@@ -5,19 +5,21 @@ import { Home } from '../components/Home';
 import { Kontakt } from '../components/Kontakt';
 import { Realizacje } from '../components/Realizacje';
 import { graphql } from 'gatsby';
+import gsap from 'gsap-trial';
+import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 
 const IndexPage = ({
 	data: {
 		allDatoCmsProject: { nodes },
 	},
 }) => {
-	
+
 	return (
 		<Layout>
 			<Header />
 			<Home />
-			<Realizacje nodes={nodes}  />
-			<Kontakt  />
+			<Realizacje nodes={nodes} />
+			<Kontakt />
 		</Layout>
 	);
 };

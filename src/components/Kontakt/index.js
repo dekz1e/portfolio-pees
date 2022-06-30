@@ -11,10 +11,10 @@ const StyledContainer = styled.section`
 	place-items: start;
 	gap: 5rem 0;
 	font-family: ${({ theme }) => theme.ff.sg};
-	padding: 0 5vw;
+	/* padding: 0 5vw; */
 
 	@media screen and (min-width: 1280px) {
-		padding: 0 10vw;
+		/* padding: 0 10vw; */
 	}
 `;
 

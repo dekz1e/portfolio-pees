@@ -14,10 +14,10 @@ const StyledContainer = styled.section`
 	align-items: center;
 	justify-content: center;
 	gap: 3rem 0;
-	padding: 100px 5vw;
+	padding: 100px 0;
 
 	@media screen and (min-width: 1280px) {
-		padding: 100px 10vw;
+		padding: 100px 0;
 	}
 `;
 
@@ -73,7 +73,7 @@ export const Realizacje = ({ nodes }) => {
 
 		gsap.from(splitheading.words, {
 			duration: 1,
-			y: -100,
+			y: -50,
 			autoAlpha: 0,
 			ease: 'elastic',
 			stagger: 0.05,
@@ -82,25 +82,8 @@ export const Realizacje = ({ nodes }) => {
 				scrub: 1,
 				start: 'top center',
 				end: 'bottom center',
-				markers: true
 			},
 		});
-
-		// gsap.utils.toArray('#image').forEach((target, index) => {
-		// 	gsap.from(target, {
-		// 		duration: 0.5,
-		// 		y: 100,
-		// 		autoAlpha: 0,
-		// 		ease: 'elastic',
-		// 		stagger: 0.05,
-		// 		scrollTrigger: {
-		// 			trigger: target,
-		// 			scrub: 1,
-		// 			start: 'top 70%',
-		// 			end: 'bottom center',
-		// 		},
-		// 	});
-		// });
 
 		ScrollTrigger.create({
 			onUpdate: (self) => {
@@ -119,7 +102,7 @@ export const Realizacje = ({ nodes }) => {
 			},
 		});
 
-		gsap.set('#image', { y: 100, opacity: 0 });
+		gsap.set('#image', { y: 50, opacity: 0 });
 
 		ScrollTrigger.batch('#image', {
 			onEnter: (batch) =>
@@ -130,11 +113,12 @@ export const Realizacje = ({ nodes }) => {
 					overwrite: true,
 				}),
 			onLeave: (batch) =>
-				gsap.set(batch, { opacity: 0, y: -100, overwrite: true }),
+				gsap.set(batch, { opacity: 0, y: -50, overwrite: true }),
 			onEnterBack: (batch) =>
 				gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
 			onLeaveBack: (batch) =>
-				gsap.set(batch, { opacity: 0, y: 100, overwrite: true }),
+				gsap.set(batch, { opacity: 0, y: 50, overwrite: true }),
+			
 		});
 
 		// make the right edge "stick" to the scroll bar. force3D: true improves performance

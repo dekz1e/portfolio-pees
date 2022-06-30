@@ -13,6 +13,8 @@ const StyledNav = styled.nav`
 	height: 100vh;
 	position: fixed;
 	top: 0;
+	left: 0;
+	right: 0;
 	background: ${({ theme, isOpen }) => isOpen && theme.colors.white};
 	display: ${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 	align-items: center;
@@ -88,7 +90,7 @@ const StyledLink = styled(AnchorLink)`
 const StyledHamburgerIcon = styled.div`
 	position: fixed;
 	top: 50px;
-	right: 50px;
+	right: 5vw;
 	width: ${({ isOpen }) => (isOpen ? '50px' : '')};
 	background-color: ${({ theme, isOpen }) =>
 		isOpen ? theme.colors.black : theme.colors.white};

@@ -1,22 +1,24 @@
-import React, { useEffect, useRef } from 'react';
 import { graphql } from 'gatsby';
+import gsap from 'gsap-trial';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import SplitText from 'gsap-trial/SplitText';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header';
 import Layout from '../../components/Layout';
-import gsap from 'gsap-trial';
-import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import './style.css';
 
 const StyledContainer = styled.section`
 	width: 100%;
 	position: relative;
-	padding: 0 5vw;
+	/* padding: 0 5vw; */
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 5rem 0;
 `;
 
 const StyledHeadingWrapper = styled.div`
+	width: 100%;
 	min-height: 100vh;
 	position: relative;
 	display: flex;
@@ -25,6 +27,7 @@ const StyledHeadingWrapper = styled.div`
 `;
 
 const StyledHeadingTitle = styled.h1`
+	width: 100%;
 	font-size: calc(${({ theme }) => theme.fs.xl} * 4);
 	text-align: center;
 	color: transparent;
@@ -46,89 +49,6 @@ const StyledHeadingTitle = styled.h1`
 	}
 	@media screen and (min-width: 1280px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 7);
-	}
-`;
-
-const StyledFeaturesWrapper = styled.div`
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr;
-	place-items: center;
-	gap: 3rem 0;
-`;
-
-const StyledFeaturesMobile = styled.div`
-	height: 100%;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	gap: 0.5rem 0;
-	text-transform: lowercase;
-	letter-spacing: 2px;
-	font-weight: ${({ theme }) => theme.fw.l};
-	p {
-		font-size: ${({ theme }) => theme.fs.xs};
-	}
-	img {
-		width: 50%;
-		-webkit-clip-path: polygon(
-			20% 0%,
-			80% 0%,
-			100% 0%,
-			100% 80%,
-			80% 100%,
-			0% 100%,
-			0% 86%,
-			0% 20%
-		);
-		clip-path: polygon(
-			20% 0%,
-			80% 0%,
-			100% 0%,
-			100% 80%,
-			80% 100%,
-			0% 100%,
-			0% 86%,
-			0% 20%
-		);
-	}
-`;
-
-const StyledFeaturesDesktop = styled(StyledFeaturesMobile)`
-	width: 100%;
-	height: 100%;
-	position: relative;
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-end;
-	p {
-		font-size: ${({ theme }) => theme.fs.s};
-		align-self: flex-end;
-	}
-
-	img {
-		width: 75%;
-		align-self: end;
-		-webkit-clip-path: polygon(
-			0% 20%,
-			0% 80%,
-			0% 100%,
-			80% 100%,
-			100% 80%,
-			100% 0%,
-			86% 0%,
-			20% 0%
-		);
-		clip-path: polygon(
-			0% 0%,
-			0% 86%,
-			14% 100%,
-			0% 100%,
-			100% 100%,
-			100% 100%,
-			100% 14%,
-			80% 0%
-		);
 	}
 `;
 
@@ -197,26 +117,35 @@ const StyledFooterTitle = styled.h1`
 `;
 
 const Projekt = ({
+	location,
 	data: {
 		datoCmsProject: { title, image, info, gallery },
 	},
 }) => {
 	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
+		gsap.registerPlugin(ScrollTrigger, SplitText);
 
 		gsap.set('.panel', { zIndex: (i, target, targets) => targets.length - i });
+		let splitTitle = new SplitText('#title');
 
-		var images = gsap.utils.toArray('.panel:not(.purple)');
+		gsap.from(splitTitle.lines, {
+			duration: 0.75,
+			yPercent: 150,
+			stagger: 0.2,
+			transformOrigin: 'top',
+		});
+
+		let images = gsap.utils.toArray('.panel:not(.purple)');
 
 		images.forEach((image, i) => {
-			var tl = gsap.timeline({
+			let tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: 'section.black',
 					start: () => 'top -' + window.innerHeight * (i + 0.5),
 					end: () => '+=' + window.innerHeight,
 					scrub: true,
 					toggleActions: 'play none reverse none',
-					invalidateOnRefresh: true,
+					
 				},
 			});
 
@@ -227,16 +156,16 @@ const Projekt = ({
 			zIndex: (i, target, targets) => targets.length - i,
 		});
 
-		var texts = gsap.utils.toArray('.panel-text');
+		let texts = gsap.utils.toArray('.panel-text');
 
 		texts.forEach((text, i) => {
-			var tl = gsap.timeline({
+			let tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: 'section.black',
 					start: () => 'top -' + window.innerHeight * i,
 					end: () => '+=' + window.innerHeight,
 					scrub: true,
-					invalidateOnRefresh: true,
+					
 				},
 			});
 
@@ -247,13 +176,65 @@ const Projekt = ({
 			);
 		});
 
+		gsap.from('#about-title', {
+			duration: 1,
+			opacity: 0,
+			autoAlpha: 0,
+			ease: 'power3.out',
+			stagger: 1,
+			scrollTrigger: {
+				trigger: '#about',
+				start: 'top 60%',
+				end: 'bottom center',
+			},
+		});
+
+		gsap.from('#about-description', {
+			duration: 2,
+			opacity: 0,
+			autoAlpha: 0,
+			ease: 'power3.out',
+			stagger: 1,
+			scrollTrigger: {
+				trigger: '#about',
+				start: 'top 50%',
+				end: 'bottom center',
+			},
+		});
+
+		gsap.from('.black', {
+			duration: .5,
+			opacity: 0,
+			x: 100,
+			autoAlpha: 0,
+			ease: 'power1.easeOut',
+			stagger: 1,
+			scrollTrigger: {
+				trigger: '.black',
+				start: 'top top',
+				end: 'bottom center',
+			},
+		});
+
+		gsap.from('#footer-title', {
+			duration: 1,
+			opacity: 0,
+			autoAlpha: 0,
+			ease: 'power1.easeOut',
+			scrollTrigger: {
+				trigger: '#footer',
+				start: 'top 80%',
+				end: 'bottom center',
+				markers: true,
+			},
+		});
+
 		ScrollTrigger.create({
 			trigger: 'section.black',
 			scrub: true,
 			pin: true,
 			start: () => 'top top',
 			end: () => '+=' + (images.length + 1) * window.innerHeight,
-			invalidateOnRefresh: true,
 		});
 	}, []);
 	return (
@@ -261,21 +242,13 @@ const Projekt = ({
 			<Header />
 			<StyledContainer>
 				<StyledHeadingWrapper>
-					<StyledHeadingTitle>{title}</StyledHeadingTitle>
+					<StyledHeadingTitle id="title">{title}</StyledHeadingTitle>
 				</StyledHeadingWrapper>
-				{/* <StyledFeaturesWrapper>
-					<StyledFeaturesMobile>
-						<p>Mobile</p>
-						<img src={gallery[0].url} />
-					</StyledFeaturesMobile>
-					<StyledFeaturesDesktop>
-						<p>Desktop</p>
-						<img src={gallery[1].url} />
-					</StyledFeaturesDesktop>
-				</StyledFeaturesWrapper> */}
-				<StyledAboutWrapper>
-					<StyledAboutSectionHeader>O projekcie</StyledAboutSectionHeader>
-					<StyledAboutDescription>
+				<StyledAboutWrapper id="about">
+					<StyledAboutSectionHeader id="about-title">
+						O projekcie
+					</StyledAboutSectionHeader>
+					<StyledAboutDescription id="about-description">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
 						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
@@ -298,7 +271,7 @@ const Projekt = ({
 					</div>
 				</section>
 				<StyledFooterWrapper id="footer">
-					<StyledFooterSectionHeader>Made in</StyledFooterSectionHeader>
+					<StyledFooterSectionHeader id="footer-title">Made in</StyledFooterSectionHeader>
 					<StyledFooterTitle>THAIS</StyledFooterTitle>
 				</StyledFooterWrapper>
 			</StyledContainer>

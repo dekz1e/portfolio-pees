@@ -1,9 +1,10 @@
+import gsap from 'gsap-trial';
+import SplitText from 'gsap-trial/SplitText';
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
-import gsap from 'gsap-trial';
 
 const StyledContainer = styled.section`
-	width: calc(100% - 10vw);
+	width: 100%;
 	min-height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -12,177 +13,145 @@ const StyledContainer = styled.section`
 	word-wrap: break-word;
 	opacity: 0;
 	position: relative;
-	margin-inline: auto;
 	@media screen and (min-width: 1280px) {
-		width: calc(100% - 20vw);
 	}
 `;
 
-const StyledLinesWrapper = styled.div`
+const StyledFirstPartWrapper = styled.div`
 	width: 100%;
 	height: 100%;
-	display: grid;
-	place-items: center;
-	/* align-items: center; */
-	/* text-align: center; */
 	position: absolute;
-	line-height: 1.25;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	@media screen and (min-width: 768px) {
+		align-items: center;
+		text-align: center;
+	}
 `;
-const StyledLines = styled.div``;
-const StyledLine = styled.p`
+
+const StyledTextWrapper = styled.div``;
+
+const StyledParagraph = styled.p`
 	overflow: hidden;
 `;
-const StyledLineText = styled.span`
-	display: block;
-	color: #fff;
-	font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
-	font-weight: 800;
-	text-align: left;
 
+const StyledText = styled.span`
+	display: block;
+	position: relative;
+	font-family: ${({ theme }) => theme.ff.po};
+	font-weight: ${({ theme }) => theme.fw.b};
+	font-size: calc(${({ theme }) => theme.fs.xl} * 2);
 	@media screen and (min-width: 768px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 1.75);
-		text-align: center;
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2.25);
 	}
-	@media screen and (min-width: 1024px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 2);
+	@media screen and (min-width: 1280px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2.5);
 	}
 `;
 
-const StyledDetailsWrapper = styled.div`
+const StyledSecondPartWrapper = styled.div`
 	width: 100%;
 	height: 100%;
-	color: white;
-	gap: 4rem 0;
-	line-height: 1.25;
-	font-size: ${({ theme }) => theme.fs.xl};
-	display: grid;
-	place-items: center;
-
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 0;
 	@media screen and (min-width: 768px) {
-		height: 50vh;
-		gap: 0 2rem;
-		font-size: calc(${({ theme }) => theme.fs.xl} * 1.25);
-	}
-
-	@media screen and (min-width: 1024px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 1.35);
-	}
-
-	@media screen and (min-width: 1280px) {
-		gap: 0 3rem;
+		align-items: center;
+		text-align: center;
+		justify-content: center;
 	}
 `;
 
-const StyledDetailsLineText = styled(StyledLineText)`
-	width: 100%;
-	font-size: ${({ theme }) => theme.fs.s};
+const StyledSecondPartText = styled(StyledText)`
+	font-size: calc(${({ theme }) => theme.fs.xl} * 1.25);
+	word-break: break-all;
 
 	@media screen and (min-width: 768px) {
-		text-align: center;
+		font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
+	}
+	@media screen and (min-width: 1280px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 1.75);
 	}
 `;
 
 export const Home = () => {
 	const ref = useRef();
 	useEffect(() => {
-		const imageTl = gsap.timeline({
+		gsap.registerPlugin(SplitText);
+
+		let first = gsap.timeline({
 			defaults: {
-				duration: 0.5,
-				ease: 'expo.inOut',
-			},
-			paused: true,
-			onStart: () => {
-				detail1Tl.play();
-			},
-			onComplete: () => {
-				lineTl.restart();
-			},
-		});
-		const detail1Tl = gsap.timeline({
-			defaults: {
-				duration: 0.5,
-				delay: 0.5,
-				ease: 'expo.inOut',
-			},
-			paused: true,
-		});
-		const lineTl = gsap.timeline({
-			defaults: {
+				ease: 'inOut',
 				delay: 0.25,
-				duration: 2,
-				stagger: 0.1,
-				ease: 'expo.inOut',
+				stagger: 0.2,
 			},
-			onStart: () => {
+			repeat: -1,
+			onStart() {
 				gsap.set(ref.current, {
 					autoAlpha: 1,
 				});
 			},
-			onComplete: () => {
-				imageTl.restart();
-				detail1Tl.restart();
-			},
 		});
-		imageTl
-			.from('#image--item__slide', {
-				scaleY: 0,
-				transformOrigin: 'bottom',
-			})
-			.to('#image--item__slide', {
-				opacity: 1,
-				delay: 7,
-				scaleY: 0,
-				transformOrigin: 'top',
-			});
-		detail1Tl
-			.from('#detail', {
-				scaleY: 0,
-				transformOrigin: 'bottom',
-			})
-			.to('#detail', {
-				opacity: 1,
-				delay: 7,
-				scaleY: 0,
-				transformOrigin: 'top',
-			});
-		lineTl
-			.from('#line--text', {
-				yPercent: 150,
+
+		let splitPartTwoText = new SplitText('#second-text');
+		first
+			.from('#first-text', {
 				skewY: 6,
+				duration: 1,
+				yPercent: 150,
 			})
-			.to('#line--text', {
-				yPercent: -150,
-				skewY: -5,
+			.to(
+				'#first-text',
+				{
+					skewY: -5,
+					yPercent: -150,
+				},
+				'+=2'
+			)
+			.from(splitPartTwoText.lines, {
+				opacity: 0,
+				duration: 3,
+			})
+			.to(splitPartTwoText.lines, {
+				opacity: 1,
+				delay: 7,
+			})
+			.to(splitPartTwoText.lines, {
+				opacity: 0,
 			});
 	}, []);
 	return (
-		<StyledContainer ref={ref} id="home" >
-			<StyledLinesWrapper>
-				<StyledLines>
-					<StyledLine>
-						<StyledLineText id="line--text">Awesome People.</StyledLineText>
-					</StyledLine>
-
-					<StyledLine>
-						<StyledLineText id="line--text">Awesome Things.</StyledLineText>
-					</StyledLine>
-
-					<StyledLine>
-						<StyledLineText id="line--text">Awesome Work.</StyledLineText>
-					</StyledLine>
-				</StyledLines>
-			</StyledLinesWrapper>
-
-			<StyledDetailsWrapper id="image--item__slide">
-				<StyledLines>
-					<StyledLine>
-						<StyledDetailsLineText id="detail">
+		<StyledContainer ref={ref} id="home">
+			<StyledFirstPartWrapper>
+				<StyledTextWrapper>
+					<StyledParagraph>
+						<StyledText id="first-text"> First </StyledText>
+					</StyledParagraph>
+				</StyledTextWrapper>
+				<StyledTextWrapper>
+					<StyledParagraph>
+						<StyledText id="first-text"> Second </StyledText>
+					</StyledParagraph>
+				</StyledTextWrapper>
+				<StyledTextWrapper>
+					<StyledParagraph>
+						<StyledText id="first-text"> Third </StyledText>
+					</StyledParagraph>
+				</StyledTextWrapper>
+			</StyledFirstPartWrapper>
+			<StyledSecondPartWrapper>
+				<StyledTextWrapper>
+					<StyledParagraph>
+						<StyledSecondPartText id="second-text">
 							Zajmujemy się przede wszystkim tworzeniem stron internetowych oraz
 							różnego rodzaju grafiki.
-						</StyledDetailsLineText>
-					</StyledLine>
-				</StyledLines>
-			</StyledDetailsWrapper>
+						</StyledSecondPartText>
+					</StyledParagraph>
+				</StyledTextWrapper>
+			</StyledSecondPartWrapper>
 		</StyledContainer>
 	);
 };
