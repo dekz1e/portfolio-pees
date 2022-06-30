@@ -7,19 +7,40 @@ import { Realizacje } from '../components/Realizacje';
 import { graphql } from 'gatsby';
 import gsap from 'gsap-trial';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import styled from 'styled-components';
+
+const StyledSmoothContainer = styled.div`
+	padding: 0 5vw;
+
+	@media screen and (min-width: 1024px) {
+		padding: 0 10vw;
+	}
+`;
 
 const IndexPage = ({
 	data: {
 		allDatoCmsProject: { nodes },
 	},
 }) => {
+	// useEffect(() => {
+	// 	gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
+	// 	let smoother = ScrollSmoother.create({
+	// 		content: '#smooth-content',
+	// 		effects: true,
+	// 		smooth: 0.3,
+	// 		smoothTouch: 0.1,
+	// 	});
+	// }, []);
 	return (
 		<Layout>
 			<Header />
-			<Home />
-			<Realizacje nodes={nodes} />
-			<Kontakt />
+			{/* <StyledSmoothContainer id="smooth-content"> */}
+				<Home />
+				<Realizacje nodes={nodes} />
+				<Kontakt />
+			{/* </StyledSmoothContainer> */}
 		</Layout>
 	);
 };

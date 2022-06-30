@@ -11,7 +11,6 @@ import './style.css';
 const StyledContainer = styled.section`
 	width: 100%;
 	position: relative;
-	/* padding: 0 5vw; */
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 5rem 0;
@@ -125,12 +124,15 @@ const Projekt = ({
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger, SplitText);
 
-		gsap.set('.panel', { zIndex: (i, target, targets) => targets.length - i });
+		gsap.set('.panel', {
+			zIndex: (i, target, targets) => targets.length - i,
+		});
 		let splitTitle = new SplitText('#title');
 
 		gsap.from(splitTitle.lines, {
-			duration: 0.75,
-			yPercent: 150,
+			duration: 0.5,
+			opacity: 0,
+			yPercent: 50,
 			stagger: 0.2,
 			transformOrigin: 'top',
 		});
@@ -145,11 +147,12 @@ const Projekt = ({
 					end: () => '+=' + window.innerHeight,
 					scrub: true,
 					toggleActions: 'play none reverse none',
-					
 				},
 			});
 
-			tl.to(image, { height: 0 });
+			tl.to(image, {
+				height: 0,
+			});
 		});
 
 		gsap.set('.panel-text', {
@@ -165,13 +168,20 @@ const Projekt = ({
 					start: () => 'top -' + window.innerHeight * i,
 					end: () => '+=' + window.innerHeight,
 					scrub: true,
-					
 				},
 			});
 
-			tl.to(text, { duration: 0.33, opacity: 1, y: '50%' }).to(
+			tl.to(text, {
+				duration: 0.33,
+				opacity: 1,
+				y: '50%',
+			}).to(
 				text,
-				{ duration: 0.33, opacity: 0, y: '0%' },
+				{
+					duration: 0.33,
+					opacity: 0,
+					y: '0%',
+				},
 				0.66
 			);
 		});
@@ -203,9 +213,8 @@ const Projekt = ({
 		});
 
 		gsap.from('.black', {
-			duration: .5,
+			duration: 0.5,
 			opacity: 0,
-			x: 100,
 			autoAlpha: 0,
 			ease: 'power1.easeOut',
 			stagger: 1,
@@ -216,19 +225,6 @@ const Projekt = ({
 			},
 		});
 
-		gsap.from('#footer-title', {
-			duration: 1,
-			opacity: 0,
-			autoAlpha: 0,
-			ease: 'power1.easeOut',
-			scrollTrigger: {
-				trigger: '#footer',
-				start: 'top 80%',
-				end: 'bottom center',
-				markers: true,
-			},
-		});
-
 		ScrollTrigger.create({
 			trigger: 'section.black',
 			scrub: true,
@@ -236,13 +232,39 @@ const Projekt = ({
 			start: () => 'top top',
 			end: () => '+=' + (images.length + 1) * window.innerHeight,
 		});
+
+		gsap.from('#footer-title', {
+			duration: 0.75,
+			opacity: 0,
+			yPercent: -200,
+			autoAlpha: 0,
+			ease: 'power1.easeOut',
+			scrollTrigger: {
+				trigger: '#footer',
+				start: 'top 80%',
+				end: 'bottom center',
+			},
+		});
+
+		gsap.from('#footer-description', {
+			duration: 1,
+			opacity: 0,
+			yPercent: -100,
+			autoAlpha: 0,
+			ease: 'power1.easeOut',
+			scrollTrigger: {
+				trigger: '#footer',
+				start: 'top 80%',
+				end: 'bottom center',
+			},
+		});
 	}, []);
 	return (
 		<Layout>
 			<Header />
 			<StyledContainer>
 				<StyledHeadingWrapper>
-					<StyledHeadingTitle id="title">{title}</StyledHeadingTitle>
+					<StyledHeadingTitle id="title"> {title} </StyledHeadingTitle>
 				</StyledHeadingWrapper>
 				<StyledAboutWrapper id="about">
 					<StyledAboutSectionHeader id="about-title">
@@ -250,29 +272,30 @@ const Projekt = ({
 					</StyledAboutSectionHeader>
 					<StyledAboutDescription id="about-description">
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+						eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim
 						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
 						aliquip ex ea commodo consequat.
 					</StyledAboutDescription>
 				</StyledAboutWrapper>
 				<section className="black">
 					<div className="text-wrap">
-						<div className="panel-text blue-text">Blue</div>
-						<div className="panel-text red-text">Red</div>
-						<div className="panel-text orange-text">Orange</div>
-						<div className="panel-text purple-text">Purple</div>
+						<div className="panel-text blue-text"> Blue </div>
+						<div className="panel-text red-text"> Red </div>
+						<div className="panel-text orange-text"> Orange </div>
+						<div className="panel-text purple-text"> Purple </div>
 					</div>
-
 					<div className="p-wrap">
-						<div className="panel blue"></div>
-						<div className="panel red"></div>
-						<div className="panel orange"></div>
-						<div className="panel purple"></div>
+						<div className="panel blue"> </div>
+						<div className="panel red"> </div>
+						<div className="panel orange"> </div>
+						<div className="panel purple"> </div>
 					</div>
 				</section>
 				<StyledFooterWrapper id="footer">
-					<StyledFooterSectionHeader id="footer-title">Made in</StyledFooterSectionHeader>
-					<StyledFooterTitle>THAIS</StyledFooterTitle>
+					<StyledFooterSectionHeader id="footer-title">
+						Made in
+					</StyledFooterSectionHeader>
+					<StyledFooterTitle id="footer-description"> THAIS </StyledFooterTitle>
 				</StyledFooterWrapper>
 			</StyledContainer>
 		</Layout>
