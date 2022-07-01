@@ -1,6 +1,6 @@
 import gsap from 'gsap-trial';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import SplitText from 'gsap-trial/SplitText';
+import SplitText from '../../utils/Split3.min';
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
@@ -128,7 +128,7 @@ export const Kontakt = () => {
 	const detailsRef = useRef(null);
 	useEffect(() => {
 		gsap.config({ trialWarn: false });
-		gsap.registerPlugin(ScrollTrigger, SplitText);
+		gsap.registerPlugin(ScrollTrigger);
 		const split = new SplitText(ref.current, {
 			type: 'lines',
 		});

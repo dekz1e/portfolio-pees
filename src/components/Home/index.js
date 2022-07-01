@@ -1,6 +1,6 @@
-import gsap from 'gsap-trial';
-import SplitText from 'gsap-trial/SplitText';
 import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap-trial';
+import SplitText from '../../utils/Split3.min';
 import styled from 'styled-components';
 
 const StyledContainer = styled.section`
@@ -80,7 +80,6 @@ const StyledSecondPartText = styled(StyledText)`
 export const Home = () => {
 	const ref = useRef();
 	useEffect(() => {
-		gsap.registerPlugin(SplitText);
 
 		let first = gsap.timeline({
 			defaults: {

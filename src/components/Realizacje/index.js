@@ -3,7 +3,7 @@ import { gsap } from 'gsap-trial';
 import styled from 'styled-components';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 import { Link } from 'gatsby';
-import SplitText from 'gsap-trial/SplitText';
+import SplitText from '../../utils/Split3.min';
 
 const StyledContainer = styled.section`
 	width: 100%;
@@ -65,7 +65,7 @@ export const Realizacje = ({ nodes }) => {
 	const headingRef = useRef();
 	const galleryRef = useRef();
 	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger, SplitText);
+		gsap.registerPlugin(ScrollTrigger);
 		let proxy = { skew: 0 },
 			skewSetter = gsap.quickSetter('#skewElem', 'skewY', 'deg'), // fast
 			clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.

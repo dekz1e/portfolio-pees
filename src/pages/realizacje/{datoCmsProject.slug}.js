@@ -1,7 +1,7 @@
 import { graphql } from 'gatsby';
 import gsap from 'gsap-trial';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import SplitText from 'gsap-trial/SplitText';
+import SplitText from '../../utils/Split3.min';
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Header from '../../components/Header';
@@ -16,7 +16,7 @@ const StyledContainer = styled.section`
 	gap: 5rem 0;
 `;
 
-const StyledHeadingWrapper = styled.div`
+const StyledHeadingContainer = styled.div`
 	width: 100%;
 	min-height: 100vh;
 	position: relative;
@@ -35,6 +35,7 @@ const StyledHeadingTitle = styled.h1`
 	z-index: 2;
 	font-family: ${({ theme }) => theme.ff.pd};
 	line-height: 1;
+	transform: translateY('150%');
 
 	@media screen and (min-width: 600px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
@@ -122,7 +123,7 @@ const Projekt = ({
 	},
 }) => {
 	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger, SplitText);
+		gsap.registerPlugin(ScrollTrigger);
 
 		gsap.set('.panel', {
 			zIndex: (i, target, targets) => targets.length - i,
@@ -130,11 +131,9 @@ const Projekt = ({
 		let splitTitle = new SplitText('#title');
 
 		gsap.from(splitTitle.lines, {
-			duration: 0.5,
-			opacity: 0,
-			yPercent: 50,
-			stagger: 0.2,
-			transformOrigin: 'top',
+			duration: 0.75,
+			yPercent: 100,
+			stagger: 0.1,
 		});
 
 		let images = gsap.utils.toArray('.panel:not(.purple)');
@@ -254,7 +253,7 @@ const Projekt = ({
 			ease: 'power1.easeOut',
 			scrollTrigger: {
 				trigger: '#footer',
-				start: 'top 80%',
+				start: 'top center',
 				end: 'bottom center',
 			},
 		});
@@ -263,9 +262,9 @@ const Projekt = ({
 		<Layout>
 			<Header />
 			<StyledContainer>
-				<StyledHeadingWrapper>
+				<StyledHeadingContainer>
 					<StyledHeadingTitle id="title"> {title} </StyledHeadingTitle>
-				</StyledHeadingWrapper>
+				</StyledHeadingContainer>
 				<StyledAboutWrapper id="about">
 					<StyledAboutSectionHeader id="about-title">
 						O projekcie
