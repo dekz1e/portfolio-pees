@@ -25,10 +25,21 @@ const StyledGalleryItems = styled.div`
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(1, minmax(300px, 1fr));
 	/* place-items: center; */
 	gap: 1rem;
 	position: relative;
+
+	@media screen and (min-width: 650px) {
+		grid-template-columns: repeat(2, minmax(300px, 1fr));
+	}
+	@media screen and (min-width: 1024px) {
+		grid-template-columns: repeat(3, minmax(300px, 1fr));
+	}
+
+	@media screen and (min-width: 1280px) {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
 `;
 
 const StyledLink = styled(Link)`
@@ -118,7 +129,6 @@ export const Realizacje = ({ nodes }) => {
 				gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
 			onLeaveBack: (batch) =>
 				gsap.set(batch, { opacity: 0, y: 50, overwrite: true }),
-			
 		});
 
 		// make the right edge "stick" to the scroll bar. force3D: true improves performance

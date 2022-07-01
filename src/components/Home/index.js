@@ -63,6 +63,10 @@ const StyledSecondPartWrapper = styled.div`
 		text-align: center;
 		justify-content: center;
 	}
+
+	@media screen and (min-width: 1500px) {
+		padding: 0 10vw;
+	}
 `;
 
 const StyledSecondPartText = styled(StyledText)`
