@@ -76,9 +76,11 @@ const StyledSecondPartText = styled(StyledText)`
 	@media screen and (min-width: 768px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
 	}
+
 	@media screen and (min-width: 1280px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 1.75);
 	}
+	
 `;
 
 export const Home = () => {

@@ -27,28 +27,28 @@ const StyledHeadingContainer = styled.div`
 
 const StyledHeadingTitle = styled.h1`
 	width: 100%;
-	font-size: calc(${({ theme }) => theme.fs.xl} * 4);
+	font-size: calc(${({ theme }) => theme.fs.xl} * 3);
 	text-align: center;
 	color: transparent;
 	-webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
 	position: relative;
 	z-index: 2;
 	font-family: ${({ theme }) => theme.ff.pd};
-	line-height: 1;
+	line-height: 1.05;
 	transform: translateY('150%');
 
 	@media screen and (min-width: 600px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 3.25);
 	}
 
 	@media screen and (min-width: 768px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 6);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 3.5);
 	}
 	@media screen and (min-width: 1024px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 6.5);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 3.75);
 	}
 	@media screen and (min-width: 1280px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 7);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 4);
 	}
 `;
 
@@ -93,13 +93,12 @@ const StyledFooterWrapper = styled.section`
 	align-items: center;
 	justify-content: center;
 	gap: 0.5rem 0;
-	/* background-color: ${({ theme }) => theme.colors.white}; */
 	color: ${({ theme }) => theme.colors.black};
 `;
 
 const StyledFooterSectionHeader = styled(StyledAboutSectionHeader)`
 	text-transform: uppercase;
-	color: ${({ theme }) => theme.colors.blackAlt};
+	color: ${({ theme }) => theme.colors.whiteAlt};
 `;
 
 const StyledFooterTitle = styled.h1`
@@ -108,6 +107,7 @@ const StyledFooterTitle = styled.h1`
 	text-align: center;
 	font-size: calc(${({ theme }) => theme.fs.xl} * 4);
 	font-family: ${({ theme }) => theme.ff.bm};
+	color: ${({ theme }) => theme.colors.white};
 	@media screen and (min-width: 600px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
 	}
@@ -119,7 +119,7 @@ const StyledFooterTitle = styled.h1`
 const Projekt = ({
 	location,
 	data: {
-		datoCmsProject: { title, image, info, gallery },
+		datoCmsProject: { title, image, info, gallery, description },
 	},
 }) => {
 	useEffect(() => {
@@ -136,7 +136,7 @@ const Projekt = ({
 			stagger: 0.1,
 		});
 
-		let images = gsap.utils.toArray('.panel:not(.purple)');
+		let images = gsap.utils.toArray('.panel:not(:last-child)');
 
 		images.forEach((image, i) => {
 			let tl = gsap.timeline({
@@ -258,6 +258,8 @@ const Projekt = ({
 			},
 		});
 	}, []);
+
+	const panels = ['blue', 'red', 'orange', 'purple'];
 	return (
 		<Layout>
 			<Header />
@@ -270,24 +272,22 @@ const Projekt = ({
 						O projekcie
 					</StyledAboutSectionHeader>
 					<StyledAboutDescription id="about-description">
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-						eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim
-						ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat.
+						{description}
 					</StyledAboutDescription>
 				</StyledAboutWrapper>
 				<section className="black">
 					<div className="text-wrap">
-						<div className="panel-text blue-text"> Blue </div>
-						<div className="panel-text red-text"> Red </div>
-						<div className="panel-text orange-text"> Orange </div>
-						<div className="panel-text purple-text"> Purple </div>
+						{gallery.map((item) => (
+							<div className="panel-text">{item.title}</div>
+						))}
 					</div>
 					<div className="p-wrap">
-						<div className="panel blue"> </div>
-						<div className="panel red"> </div>
-						<div className="panel orange"> </div>
-						<div className="panel purple"> </div>
+						{gallery.map((item, i) => (
+							<div
+								className="panel"
+								style={{ backgroundImage: `url(${item.url})` }}
+							></div>
+						))}
 					</div>
 				</section>
 				<StyledFooterWrapper id="footer">
@@ -307,6 +307,7 @@ export const query = graphql`
 	query ($id: String) {
 		datoCmsProject(id: { eq: $id }) {
 			info
+			description
 			image {
 				filename
 				url
@@ -317,6 +318,7 @@ export const query = graphql`
 			gallery {
 				filename
 				url
+				title
 			}
 		}
 	}
