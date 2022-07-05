@@ -64,7 +64,7 @@ const StyledSecondPartWrapper = styled.div`
 		justify-content: center;
 	}
 
-	@media screen and (min-width: 1500px) {
+	@media screen and (min-width: 1800px) {
 		padding: 0 10vw;
 	}
 `;
@@ -80,13 +80,11 @@ const StyledSecondPartText = styled(StyledText)`
 	@media screen and (min-width: 1280px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 1.75);
 	}
-	
 `;
 
 export const Home = () => {
 	const ref = useRef();
 	useEffect(() => {
-
 		let first = gsap.timeline({
 			defaults: {
 				ease: 'inOut',
@@ -133,26 +131,26 @@ export const Home = () => {
 			<StyledFirstPartWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
-						<StyledText id="first-text"> First </StyledText>
+						<StyledText id="first-text"> PEES </StyledText>
+					</StyledParagraph>
+				</StyledTextWrapper>
+				{/* <StyledTextWrapper>
+					<StyledParagraph>
+						<StyledText id="first-text"> Strony internetowe </StyledText>
 					</StyledParagraph>
 				</StyledTextWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
-						<StyledText id="first-text"> Second </StyledText>
+						<StyledText id="first-text"> Grafika </StyledText>
 					</StyledParagraph>
-				</StyledTextWrapper>
-				<StyledTextWrapper>
-					<StyledParagraph>
-						<StyledText id="first-text"> Third </StyledText>
-					</StyledParagraph>
-				</StyledTextWrapper>
+				</StyledTextWrapper> */}
 			</StyledFirstPartWrapper>
 			<StyledSecondPartWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
 						<StyledSecondPartText id="second-text">
-							Zajmujemy się przede wszystkim tworzeniem stron internetowych oraz
-							różnego rodzaju grafiki.
+							Projektujemy oraz wdrażamy strony internetowe. Zajmujemy się
+							również tworzeniem różnego rodzaju materiałów graficznych.
 						</StyledSecondPartText>
 					</StyledParagraph>
 				</StyledTextWrapper>

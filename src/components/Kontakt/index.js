@@ -188,11 +188,11 @@ export const Kontakt = () => {
 					<StyledWrapper>
 						<StyledDataHeading>Pozostańmy w kontakcie</StyledDataHeading>
 						<StyledDetails>
-							<p>kontakt@pees.pl</p>
+							<p>email</p>
 							<p>Adrian</p>
-							<p>+48 997 997 997</p>
-							<p>ul. Lubelska 23/6</p>
-							<p>997 Lublin</p>
+							<p>+48 XXX XXX XXX</p>
+							<p>Maciek</p>
+							<p>+48 XXX XXX XXX</p>
 						</StyledDetails>
 					</StyledWrapper>
 					<StyledWrapper>
