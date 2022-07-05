@@ -28,7 +28,7 @@ const StyledNav = styled.nav`
 		position: fixed;
 		left: 0;
 		right: 0;
-		background:  'transparent';
+		background: 'transparent';
 		/* -webkit-backdrop-filter: blur(10px);
 		backdrop-filter: blur(10px);
 		border-radius: 0 0 100% 100%;
@@ -170,17 +170,32 @@ const Header = () => {
 				</StyledLogo>
 				<StyledList isOpen={isOpen}>
 					<StyledItem>
-						<StyledLink to="/#home" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink
+							to="/#home"
+							isOpen={isOpen}
+							isScroll={isScroll}
+							onClick={() => setIsOpen(false)}
+						>
 							strona główna
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/#realizacje" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink
+							to="/#realizacje"
+							isOpen={isOpen}
+							isScroll={isScroll}
+							onClick={() => setIsOpen(false)}
+						>
 							realizacje
 						</StyledLink>
 					</StyledItem>
 					<StyledItem>
-						<StyledLink to="/#kontakt" isOpen={isOpen} isScroll={isScroll}>
+						<StyledLink
+							to="/#kontakt"
+							isOpen={isOpen}
+							isScroll={isScroll}
+							onClick={() => setIsOpen(false)}
+						>
 							kontakt
 						</StyledLink>
 					</StyledItem>
