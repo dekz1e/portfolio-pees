@@ -42,12 +42,12 @@ const StyledText = styled.span`
 	position: relative;
 	font-family: ${({ theme }) => theme.ff.po};
 	font-weight: ${({ theme }) => theme.fw.b};
-	font-size: calc(${({ theme }) => theme.fs.xl} * 2);
+	font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
 	@media screen and (min-width: 768px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 2.25);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 1.75);
 	}
 	@media screen and (min-width: 1280px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 2.5);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2);
 	}
 `;
 
@@ -131,19 +131,19 @@ export const Home = () => {
 			<StyledFirstPartWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
-						<StyledText id="first-text"> PEES </StyledText>
-					</StyledParagraph>
-				</StyledTextWrapper>
-				{/* <StyledTextWrapper>
-					<StyledParagraph>
-						<StyledText id="first-text"> Strony internetowe </StyledText>
+						<StyledText id="first-text"> Mushouse </StyledText>
 					</StyledParagraph>
 				</StyledTextWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
-						<StyledText id="first-text"> Grafika </StyledText>
+						<StyledText id="first-text"> Mushouse </StyledText>
 					</StyledParagraph>
-				</StyledTextWrapper> */}
+				</StyledTextWrapper>
+				<StyledTextWrapper>
+					<StyledParagraph>
+						<StyledText id="first-text"> Mushouse </StyledText>
+					</StyledParagraph>
+				</StyledTextWrapper>
 			</StyledFirstPartWrapper>
 			<StyledSecondPartWrapper>
 				<StyledTextWrapper>

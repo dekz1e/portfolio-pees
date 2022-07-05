@@ -166,7 +166,7 @@ const Header = () => {
 		<StyledHeader>
 			<StyledNav isOpen={isOpen} isScroll={isScroll}>
 				<StyledLogo to="/#home" isScroll={isScroll}>
-					PEES
+					Mushouse
 				</StyledLogo>
 				<StyledList isOpen={isOpen}>
 					<StyledItem>
