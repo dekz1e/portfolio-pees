@@ -52,7 +52,7 @@ html {
 
 
 body {
-  /* background-color: #d4418e; */
+  background-color: #d4418e;
   background-size: 300% 100%;
   background-repeat: no-repeat;
   background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%),

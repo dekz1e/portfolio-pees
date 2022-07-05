@@ -128,7 +128,7 @@ export const Home = () => {
 	}, []);
 	return (
 		<StyledContainer ref={ref} id="home">
-			<StyledFirstPartWrapper>
+			{/* <StyledFirstPartWrapper>
 				<StyledTextWrapper>
 					<StyledParagraph>
 						<StyledText id="first-text"> Mushouse </StyledText>
@@ -154,7 +154,8 @@ export const Home = () => {
 						</StyledSecondPartText>
 					</StyledParagraph>
 				</StyledTextWrapper>
-			</StyledSecondPartWrapper>
+			</StyledSecondPartWrapper> */}
+			<h1>MUSHOUSE</h1>
 		</StyledContainer>
 	);
 };
