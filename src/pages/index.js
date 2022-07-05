@@ -23,24 +23,24 @@ const IndexPage = ({
 		allDatoCmsProject: { nodes },
 	},
 }) => {
-	// useEffect(() => {
-	// 	gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-	// 	let smoother = ScrollSmoother.create({
-	// 		content: '#smooth-content',
-	// 		effects: true,
-	// 		smooth: 0.3,
-	// 		smoothTouch: 0.1,
-	// 	});
-	// }, []);
+		let smoother = ScrollSmoother.create({
+			content: '#smooth-content',
+			effects: true,
+			smooth: 0.3,
+			smoothTouch: 0.1,
+		});
+	}, []);
 	return (
 		<Layout>
 			<Header />
-			{/* <StyledSmoothContainer id="smooth-content"> */}
+			<StyledSmoothContainer id="smooth-content">
 				<Home />
 				<Realizacje nodes={nodes} />
 				<Kontakt />
-			{/* </StyledSmoothContainer> */}
+			</StyledSmoothContainer>
 		</Layout>
 	);
 };
