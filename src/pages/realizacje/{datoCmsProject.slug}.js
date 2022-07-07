@@ -199,7 +199,7 @@ const Projekt = ({
 		});
 
 		gsap.from('#about-description', {
-			duration: 1,
+			duration: 2,
 			opacity: 0,
 			autoAlpha: 0,
 			ease: 'power3.out',
@@ -212,9 +212,11 @@ const Projekt = ({
 		});
 
 		gsap.from('.black', {
-			duration: 0.1,
+			duration: 0.2,
+			opacity: 0,
 			autoAlpha: 0,
 			ease: 'power1.easeOut',
+			stagger: 1,
 			scrollTrigger: {
 				trigger: '.black',
 				start: 'top 90%',
@@ -226,7 +228,7 @@ const Projekt = ({
 			trigger: 'section.black',
 			scrub: true,
 			pin: true,
-			start: () => 'top 90%',
+			start: () => 'top top',
 			end: () => '+=' + (images.length + 1) * window.innerHeight,
 		});
 
