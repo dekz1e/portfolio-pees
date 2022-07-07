@@ -131,7 +131,7 @@ const Projekt = ({
 		let splitTitle = new SplitText('#title');
 
 		gsap.from(splitTitle.lines, {
-			duration: 0.75,
+			duration: 0.25,
 			yPercent: 100,
 			stagger: 0.1,
 		});
@@ -199,7 +199,7 @@ const Projekt = ({
 		});
 
 		gsap.from('#about-description', {
-			duration: 2,
+			duration: 1,
 			opacity: 0,
 			autoAlpha: 0,
 			ease: 'power3.out',
@@ -212,14 +212,12 @@ const Projekt = ({
 		});
 
 		gsap.from('.black', {
-			duration: 0.5,
-			opacity: 0,
+			duration: 0.1,
 			autoAlpha: 0,
 			ease: 'power1.easeOut',
-			stagger: 1,
 			scrollTrigger: {
 				trigger: '.black',
-				start: 'top top',
+				start: 'top 90%',
 				end: 'bottom center',
 			},
 		});
@@ -228,7 +226,7 @@ const Projekt = ({
 			trigger: 'section.black',
 			scrub: true,
 			pin: true,
-			start: () => 'top top',
+			start: () => 'top 90%',
 			end: () => '+=' + (images.length + 1) * window.innerHeight,
 		});
 
