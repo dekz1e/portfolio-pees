@@ -86,7 +86,7 @@ export const Realizacje = ({ nodes }) => {
 			scrollTrigger: {
 				trigger: '#realizacje',
 				scrub: 1,
-				start: 'top center',
+				start: 'top 90%',
 				end: 'bottom center',
 			},
 		});
