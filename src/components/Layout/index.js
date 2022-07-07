@@ -52,10 +52,10 @@ html {
 
 
 body {
-  background-color: #d4418e;
+  background-color: #6a11cb;
   background-size: 300% 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(315deg, #d4418e 0%, #0652c5 74%),
+  background-image: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%),
     url(https://grainy-gradients.vercel.app/noise.svg);
   animation: AnimateBG 20s ease infinite;
   color: ${({ theme }) => theme.colors.white};

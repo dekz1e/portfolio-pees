@@ -78,14 +78,13 @@ export const Realizacje = ({ nodes }) => {
 		let splitheading = new SplitText(headingRef.current);
 
 		gsap.from(splitheading.words, {
-			duration: 1,
-			y: -50,
+			duration: 0.5,
+			y: -100,
 			autoAlpha: 0,
 			ease: 'elastic',
 			stagger: 0.05,
 			scrollTrigger: {
 				trigger: '#realizacje',
-				scrub: 1,
 				start: 'top 90%',
 				end: 'bottom center',
 			},
@@ -99,7 +98,7 @@ export const Realizacje = ({ nodes }) => {
 					proxy.skew = skew;
 					gsap.to(proxy, {
 						skew: 0,
-						duration: 0.8,
+						duration: 0.5,
 						ease: 'power3',
 						overwrite: true,
 						onUpdate: () => skewSetter(proxy.skew),
@@ -108,22 +107,21 @@ export const Realizacje = ({ nodes }) => {
 			},
 		});
 
-		gsap.set('#image', { y: 50, opacity: 0 });
+		gsap.set('#image', {  opacity: 0 });
 
 		ScrollTrigger.batch('#image', {
 			onEnter: (batch) =>
 				gsap.to(batch, {
 					opacity: 1,
-					y: 0,
-					stagger: { each: 0.15, grid: [1, 3] },
+					stagger: { each: 0.05 },
 					overwrite: true,
 				}),
 			onLeave: (batch) =>
-				gsap.set(batch, { opacity: 0, y: -50, overwrite: true }),
-			onEnterBack: (batch) =>
-				gsap.to(batch, { opacity: 1, y: 0, stagger: 0.15, overwrite: true }),
-			onLeaveBack: (batch) =>
-				gsap.set(batch, { opacity: 0, y: 50, overwrite: true }),
+				gsap.set(batch, { opacity: 0, overwrite: true }),
+			// onEnterBack: (batch) =>
+			// 	gsap.to(batch, { opacity: 1, y: 0, stagger: 0.05, overwrite: true }),
+			// onLeaveBack: (batch) =>
+			// 	gsap.set(batch, { opacity: 0, y: 50, overwrite: true }),
 		});
 
 		// make the right edge "stick" to the scroll bar. force3D: true improves performance
