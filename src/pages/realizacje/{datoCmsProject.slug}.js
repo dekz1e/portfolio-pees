@@ -212,7 +212,7 @@ const Projekt = ({
 		});
 
 		gsap.from('.black', {
-			duration: 0.2,
+			duration: 0.5,
 			opacity: 0,
 			autoAlpha: 0,
 			ease: 'power1.easeOut',
