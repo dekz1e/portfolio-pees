@@ -1,0 +1,143 @@
+[33mcommit 10a0a1f5944911dd8e4c21625edf02332c8d2539[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jul 7 23:08:35 2022 +0200
+
+    change concept
+
+[33mcommit 0b03cf271f381579a4631106e08a1dcf4d247617[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jul 7 22:49:22 2022 +0200
+
+    update home component
+
+[33mcommit 32cf6071c836739a6c8f7e281a590c47d4033808[m[33m ([m[1;31morigin/essa[m[33m, [m[1;32messa[m[33m)[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 22:13:03 2022 +0200
+
+    delete smoothscroller
+
+[33mcommit 78a01b85be5a1be15ff0d836f13e0639a6e6ef9f[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 22:10:11 2022 +0200
+
+    add smoothscroller
+
+[33mcommit 7ca51da4a8a65588f2591677aeb30d12fc28f05d[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 22:07:53 2022 +0200
+
+    test v1
+
+[33mcommit 641ece2bc520b1f7e8dbf9e3616dc35e01a0ac7c[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 22:00:44 2022 +0200
+
+    update font size
+
+[33mcommit 0ae2533cc682e74349aacfeb6790ef2a6420f44c[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 21:45:35 2022 +0200
+
+    close meenu while click link
+
+[33mcommit 0ccfaf0c422a4b33410d3ff738a9e994ab1e3f31[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Tue Jul 5 20:45:07 2022 +0200
+
+     update content
+
+[33mcommit a2bb64c7c4c2786cfbc4c7166415c3caa56f16bb[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Mon Jul 4 01:07:41 2022 +0200
+
+    fix bugs, change realizacje page
+
+[33mcommit f3832e8167dd94dc4dd7cd9e95b4959725f9c43d[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Fri Jul 1 17:48:43 2022 +0200
+
+    change grid settings in realizacje
+
+[33mcommit e3bf5e2897d184711f66d16f872fd792e34f3187[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Fri Jul 1 15:21:35 2022 +0200
+
+    update projecT
+
+[33mcommit 00fdd5f25cf6509d735d81db351671233b079823[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jun 30 23:29:09 2022 +0200
+
+    semi final versionXD
+
+[33mcommit 764b08f4f98f8d3c5eebdc6898c5754af384980a[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jun 30 19:29:49 2022 +0200
+
+    add effects
+
+[33mcommit cee8111e5fcf1bedbd8db7178f0390163a050598[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Sun Jun 26 16:59:03 2022 +0200
+
+    change concept
+
+[33mcommit 9af4c57a1deecf254a0df2fae11a38604b7817a9[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Wed Jun 22 18:29:38 2022 +0200
+
+    change contact page concept
+
+[33mcommit c2a392cf0e8dbd6ab0a5258f877fa359d8157835[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Mon Jun 20 21:58:17 2022 +0200
+
+    add gsap animation to the contact text
+
+[33mcommit 94c31367e9bc50f637d6b607429fbaf44797a631[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Mon Jun 13 01:24:44 2022 +0200
+
+    main : add first look of the project page
+
+[33mcommit 866d0c0dd32c8e1723c78199f6adc9e7e604c368[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Sat Jun 11 22:00:44 2022 +0200
+
+    main : update header styles
+
+[33mcommit 42b2883a91fa6c4521c1077fe2a3b0582ab0cfae[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Sat Jun 11 21:53:51 2022 +0200
+
+    main : add contact page
+
+[33mcommit bc97a8c68e35ab57ee7dca060497557322713caa[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Sat Jun 11 14:52:08 2022 +0200
+
+    main : add animation to header bg reveal
+
+[33mcommit c7a106dec5a477b1198a0831ca629ac8edc33b6e[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Sat Jun 11 14:34:30 2022 +0200
+
+    main : add projects page
+
+[33mcommit e2c84b60ed17bef5f1a48cfbe88e869b718ee8d1[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jun 9 22:41:19 2022 +0200
+
+    main : add header
+
+[33mcommit 8802ca501ea763674088173e55872a04fe944bc6[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jun 9 16:34:13 2022 +0200
+
+    main : add global styles and create layout component
+
+[33mcommit 5e7fd381afaacbfb92cb9a24c9dc9f222cea5fd6[m
+Author: dekzzie <perecadrian@gmail.com>
+Date:   Thu Jun 9 15:41:43 2022 +0200
+
+    Initial commit from gatsby
