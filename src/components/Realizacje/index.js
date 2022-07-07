@@ -74,7 +74,7 @@ export const Realizacje = ({ nodes }) => {
 		gsap.registerPlugin(ScrollTrigger);
 		let proxy = { skew: 0 },
 			skewSetter = gsap.quickSetter('#skewElem', 'skewY', 'deg'), // fast
-			clamp = gsap.utils.clamp(-20, 20); // don't let the skew go beyond 20 degrees.
+			clamp = gsap.utils.clamp(-2, 2); // don't let the skew go beyond 20 degrees.
 		let splitheading = new SplitText(headingRef.current);
 
 		gsap.from(splitheading.words, {
