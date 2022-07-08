@@ -20,9 +20,10 @@ const Projects = ({ nodes }) => {
       stagger: 0.1,
       scrollTrigger: {
         scrub: true,
-        trigger: "#realizacje",
+        trigger: "#projects",
         start: "top 90%",
         end: "center 70%",
+        
       },
     });
 
@@ -64,7 +65,7 @@ const Projects = ({ nodes }) => {
   const projectsList = nodes.reverse();
   return (
     <>
-      <Container name="projects">
+      <Container name="projects" id="projects">
         <Heading ref={headingRef}>Nasze realizacje</Heading>
         <GalleryItems ref={galleryRef} id="gallery">
           {projectsList.map((item) => (

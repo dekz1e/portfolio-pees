@@ -46,7 +46,7 @@ const Contact = () => {
         scrollTrigger: {
           trigger: target,
           scrub: 1,
-          start: "top center",
+          start: "top 65%",
           end: "bottom center",
         },
       });

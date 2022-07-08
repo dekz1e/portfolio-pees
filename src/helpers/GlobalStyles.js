@@ -54,8 +54,9 @@ html {
     color: ${theme.colors.black};
     background: ${theme.colors.white};
 }
-
-
+.no-scroll {
+    overflow: hidden;
+}
 body {
   background-color: #6a11cb;
   background-size: 300% 100%;

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { theme } from "../../helpers/theme";
-import { Link } from "gatsby";
 import { Link as sLink } from "react-scroll";
 
 export const HeaderWrap = styled.header`
@@ -9,20 +8,12 @@ export const HeaderWrap = styled.header`
 `;
 
 export const Nav = styled.nav`
-  width: 100%;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: ${({ theme, isOpen }) => isOpen && theme.colors.white};
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  transition: all 0.3s ease-in-out;
+  display: none;
   @media screen and (min-width: 768px) {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
     height: 100px;
     padding: 0 5vw;
     position: fixed;
@@ -87,24 +78,38 @@ export const StyledLink = styled(sLink)`
     color: ${({ theme }) => theme.colors.black};
   }
 `;
-
-export const HamburgerIcon = styled.div`
+export const BurgerWrap = styled.div`
+  display: block;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
+`;
+export const BurgerContainer = styled.div`
+  width: 50px;
+  height: 40px;
   position: fixed;
-  top: 50px;
-  right: 5vw;
-  width: ${({ isOpen }) => (isOpen ? "50px" : "")};
+  top: 1em;
+  right: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  overflow: hidden;
+`;
+export const HamburgerIcon = styled.div`
+  position: relative;
+  width: 45px;
   background-color: ${({ theme, isOpen }) =>
     isOpen ? theme.colors.black : theme.colors.white};
   transition: 0.3s ease-in-out;
-  z-index: 5;
   cursor: pointer;
-
   &::after,
   &::before {
     content: "";
     border-radius: 100px;
     position: absolute;
-    width: 50px;
+    width: 45px;
     height: 3px;
     right: 0;
     background-color: ${({ theme, isOpen }) =>
@@ -117,7 +122,7 @@ export const HamburgerIcon = styled.div`
       isOpen ? "rotate(45deg)" : `translateY(5px)`};
   }
   &::before {
-    width: ${({ isOpen }) => (isOpen ? "50px" : "40px")};
+    width: ${({ isOpen }) => (isOpen ? "45px" : "35px")};
     transform: ${({ isOpen }) =>
       isOpen ? "rotate(-45deg)" : `translateY(-5px)`};
   }
@@ -127,7 +132,8 @@ export const HamburgerIcon = styled.div`
   }
 `;
 
-export const Logo = styled(Link)`
+export const Logo = styled(sLink)`
+  cursor: pointer;
   font-size: ${({ theme }) => theme.fs.s};
   font-family: ${({ theme }) => theme.ff.bai};
   font-weight: ${({ theme }) => theme.fw.b};
