@@ -67,7 +67,7 @@ const StyledHeading = styled.h2`
   }
 `;
 
-export const Realizacje = ({ nodes }) => {
+const Projects = ({ nodes }) => {
   const headingRef = useRef();
   const galleryRef = useRef();
   useEffect(() => {
@@ -154,3 +154,5 @@ export const Realizacje = ({ nodes }) => {
     </>
   );
 };
+
+export default Projects;
