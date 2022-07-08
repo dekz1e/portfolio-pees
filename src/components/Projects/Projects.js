@@ -29,11 +29,11 @@ export const GalleryItems = styled.div`
 `;
 
 export const StyledLink = styled(Link)`
+cursor: none;
   width: min(100%, 550px);
   height: 450px;
   filter: grayscale(80%) brightness(85%);
   transition: all 0.25s ease-in-out;
-  cursor: pointer;
   border-radius: 20px;
   position: relative;
   &:hover {

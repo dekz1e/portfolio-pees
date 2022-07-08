@@ -70,6 +70,7 @@ const Projects = ({ nodes }) => {
         <GalleryItems ref={galleryRef} id="gallery">
           {projectsList.map((item) => (
             <StyledLink
+            className="link"
               to={`/realizacje/${item.slug}`}
               key={item.image.url}
               id="image"
