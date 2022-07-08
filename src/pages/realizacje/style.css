@@ -5,12 +5,18 @@
 .black {
 	width: 100%;
 	height: 100vh;
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 	background-color: transparent;
 	padding: 5vh 0;
+}
+
+@media screen and (min-width: 768px) {
+	.black {
+		display: flex;
+	}
 }
 
 .text-wrap {
@@ -38,7 +44,7 @@
 	transform: translateY(100%);
 	opacity: 0;
 
-	font-family: 'Bai Jamjuree', sans-serif
+	font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .panel-text.blue-text {
