@@ -12,5 +12,6 @@ module.exports = {
 		},
 		'gatsby-plugin-styled-components',
 		`gatsby-plugin-anchor-links`,
+		`gatsby-plugin-netlify`
 	],
 };
