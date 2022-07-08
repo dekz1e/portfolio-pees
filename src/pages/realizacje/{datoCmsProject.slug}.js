@@ -3,120 +3,22 @@ import gsap from "gsap-trial";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
 import SplitText from "../../utils/Split3.min";
 import React, { useEffect } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import Header from "../../components/Header";
 import "./style.css";
 import { GlobalStyles } from "../../helpers/GlobalStyles";
 import { theme } from "../../helpers/theme";
-
-const StyledContainer = styled.section`
-  width: 100%;
-  position: relative;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 5rem 0;
-`;
-
-const StyledHeadingContainer = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledHeadingTitle = styled.h1`
-  width: 100%;
-  font-size: calc(${({ theme }) => theme.fs.xl} * 3);
-  text-align: center;
-  color: transparent;
-  -webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
-  position: relative;
-  z-index: 2;
-  font-family: ${({ theme }) => theme.ff.pd};
-  line-height: 1.05;
-  transform: translateY("150%");
-
-  @media screen and (min-width: 600px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 3.25);
-  }
-
-  @media screen and (min-width: 768px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 3.5);
-  }
-  @media screen and (min-width: 1024px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 3.75);
-  }
-  @media screen and (min-width: 1280px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 4);
-  }
-`;
-
-const StyledAboutWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-transform: uppercase;
-`;
-
-const StyledAboutSectionHeader = styled.span`
-  font-weight: ${({ theme }) => theme.fw.l};
-  font-size: ${({ theme }) => theme.fs.s};
-  color: ${({ theme }) => theme.colors.whiteAlt};
-  letter-spacing: 1px;
-  @media screen and (min-width: 600px) {
-    font-size: ${({ theme }) => theme.fs.m};
-  }
-`;
-
-const StyledAboutDescription = styled.p`
-  font-size: ${({ theme }) => theme.fs.xl};
-  font-family: ${({ theme }) => theme.ff.bai};
-  line-height: 1.25;
-  @media screen and (min-width: 600px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 1.1);
-  }
-  @media screen and (min-width: 768px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 1.25);
-    line-height: 1.5;
-  }
-  @media screen and (min-width: 1024px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
-  }
-`;
-
-const StyledFooterWrapper = styled.section`
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem 0;
-  color: ${({ theme }) => theme.colors.black};
-`;
-
-const StyledFooterSectionHeader = styled(StyledAboutSectionHeader)`
-  text-transform: uppercase;
-  color: ${({ theme }) => theme.colors.whiteAlt};
-`;
-
-const StyledFooterTitle = styled.h1`
-  width: 100%;
-  word-break: break-all;
-  text-align: center;
-  font-size: calc(${({ theme }) => theme.fs.xl} * 4);
-  font-family: ${({ theme }) => theme.ff.bm};
-  color: ${({ theme }) => theme.colors.white};
-  @media screen and (min-width: 600px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 5);
-  }
-  @media screen and (min-width: 768px) {
-    font-size: calc(${({ theme }) => theme.fs.xl} * 6);
-  }
-`;
-
+import {
+  Container,
+  HeadingContainer,
+  HeadingTitle,
+  AboutWrapper,
+  AboutSectionHeader,
+  AboutDescription,
+  FooterWrapper,
+  FooterSectionHeader,
+  FooterTitle,
+} from "./ProjectPage";
 const Projekt = ({
   location,
   data: {
@@ -265,18 +167,16 @@ const Projekt = ({
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Header />
-      <StyledContainer>
-        <StyledHeadingContainer>
-          <StyledHeadingTitle id="title"> {title} </StyledHeadingTitle>
-        </StyledHeadingContainer>
-        <StyledAboutWrapper id="about">
-          <StyledAboutSectionHeader id="about-title">
-            O projekcie
-          </StyledAboutSectionHeader>
-          <StyledAboutDescription id="about-description">
+      <Container>
+        <HeadingContainer>
+          <HeadingTitle id="title"> {title} </HeadingTitle>
+        </HeadingContainer>
+        <AboutWrapper id="about">
+          <AboutSectionHeader id="about-title">O projekcie</AboutSectionHeader>
+          <AboutDescription id="about-description">
             {description}
-          </StyledAboutDescription>
-        </StyledAboutWrapper>
+          </AboutDescription>
+        </AboutWrapper>
         <section className="black">
           <div className="text-wrap">
             {gallery.map((item) => (
@@ -292,13 +192,11 @@ const Projekt = ({
             ))}
           </div>
         </section>
-        <StyledFooterWrapper id="footer">
-          <StyledFooterSectionHeader id="footer-title">
-            będzie
-          </StyledFooterSectionHeader>
-          <StyledFooterTitle id="footer-description"> MAGIK </StyledFooterTitle>
-        </StyledFooterWrapper>
-      </StyledContainer>
+        <FooterWrapper id="footer">
+          <FooterSectionHeader id="footer-title">będzie</FooterSectionHeader>
+          <FooterTitle id="footer-description"> MAGIK </FooterTitle>
+        </FooterWrapper>
+      </Container>
     </ThemeProvider>
   );
 };
