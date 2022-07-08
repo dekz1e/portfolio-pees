@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { theme } from "../../helpers/theme";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  display: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
+`;
 export const Circle = styled.div`
   position: absolute;
   width: 2em;
