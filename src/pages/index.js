@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import Layout from '../components/Layout';
 import Header from '../components/Header';
 import { Home } from '../components/Home';
-import { Kontakt } from '../components/Kontakt';
-import { Realizacje } from '../components/Realizacje';
+import Contact from '../components/Contact';
+import { Realizacje } from '../components/Projects';
 import { graphql } from 'gatsby';
 import gsap from 'gsap-trial';
 import ScrollSmoother from 'gsap-trial/ScrollSmoother';
@@ -39,7 +39,7 @@ const IndexPage = ({
 			{/* <StyledSmoothContainer id="smooth-content"> */}
 				<Home />
 				<Realizacje nodes={nodes} />
-				<Kontakt />
+				<Contact />
 			{/* </StyledSmoothContainer> */}
 		</Layout>
 	);

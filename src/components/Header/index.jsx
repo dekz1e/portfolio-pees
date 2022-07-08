@@ -20,7 +20,7 @@ const StyledNav = styled.nav`
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	transition: 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
 	@media screen and (min-width: 768px) {
 		display: flex;
 		height: 100px;
@@ -164,7 +164,7 @@ const Header = () => {
 	};
 	return (
 		<StyledHeader>
-			<StyledNav isOpen={isOpen} isScroll={isScroll}>
+			<StyledNav isOpen={isOpen} isScroll={isScroll} >
 				<StyledLogo to="/#home" isScroll={isScroll}>
 					Mushouse
 				</StyledLogo>
