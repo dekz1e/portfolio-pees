@@ -1,5 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { HeaderWrap, Nav, Logo, List, Item, StyledLink, HamburgerIcon } from "./Header";
+import {
+  HeaderWrap,
+  Nav,
+  Logo,
+  List,
+  Item,
+  StyledLink,
+  HamburgerIcon,
+} from "./Header";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,6 +26,9 @@ const Header = () => {
   const handleMenuOpen = () => {
     setIsOpen(!isOpen);
   };
+  const Scroll = require("react-scroll");
+  const scroll = Scroll.animateScroll;
+
   return (
     <HeaderWrap>
       <Nav isOpen={isOpen} isScroll={isScroll}>
@@ -27,30 +38,36 @@ const Header = () => {
         <List isOpen={isOpen}>
           <Item>
             <StyledLink
-              to="/#home"
-              isOpen={isOpen}
-              isScroll={isScroll}
-              onClick={() => setIsOpen(false)}
+              className="link hover"
+              spy={true}
+              smooth={true}
+              duration={500}
+              activeClass="active"
+              onClick={() => scroll.scrollToTop()}
             >
               strona główna
             </StyledLink>
           </Item>
           <Item>
             <StyledLink
-              to="/#realizacje"
-              isOpen={isOpen}
-              isScroll={isScroll}
-              onClick={() => setIsOpen(false)}
+              className="link hover"
+              spy={true}
+              smooth={true}
+              duration={500}
+              activeClass="active"
+              to="projects"
             >
               realizacje
             </StyledLink>
           </Item>
           <Item>
             <StyledLink
-              to="/#kontakt"
-              isOpen={isOpen}
-              isScroll={isScroll}
-              onClick={() => setIsOpen(false)}
+              className="link hover"
+              spy={true}
+              smooth={true}
+              duration={2500}
+              activeClass="active"
+              to="contact"
             >
               kontakt
             </StyledLink>

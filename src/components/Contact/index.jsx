@@ -2,9 +2,17 @@ import gsap from "gsap-trial";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
 import SplitText from "../../utils/Split3.min";
 import React, { useEffect, useRef } from "react";
-import {Container, Title, InfoWrapper, Wrapper, DataHeading, Details, Socials} from './Contact'
+import {
+  Container,
+  Title,
+  InfoWrapper,
+  Wrapper,
+  DataHeading,
+  Details,
+  Socials,
+} from "./Contact";
 
- const Contact = () => {
+const Contact = () => {
   const ref = useRef(null);
   const detailsRef = useRef(null);
   useEffect(() => {
@@ -76,7 +84,7 @@ import {Container, Title, InfoWrapper, Wrapper, DataHeading, Details, Socials} f
               <p>+48 XXX XXX XXX</p>
             </Details>
           </Wrapper>
-          <Wrapper id="kontakt">
+          <Wrapper name="contact">
             <DataHeading>Jesteśmy też na</DataHeading>
             <Socials>
               <a

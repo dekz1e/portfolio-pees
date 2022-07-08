@@ -64,7 +64,7 @@ const Projects = ({ nodes }) => {
   const projectsList = nodes.reverse();
   return (
     <>
-      <Container id="realizacje">
+      <Container name="projects">
         <Heading ref={headingRef}>Nasze realizacje</Heading>
         <GalleryItems ref={galleryRef} id="gallery">
           {projectsList.map((item) => (
