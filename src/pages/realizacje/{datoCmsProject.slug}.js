@@ -22,6 +22,7 @@ import {
 import DesktopGallery from "../../components/ProjectGallery/DesktopGallery";
 import MobileGallery from "../../components/ProjectGallery/MobileGallery";
 import Cursor from "../../components/Cursor";
+import GoBackButton from "../../components/GoBackButton";
 
 const Projekt = ({
   location,
@@ -97,7 +98,8 @@ const Projekt = ({
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Cursor />
-      <Header />
+      {/* <Header /> */}
+      <GoBackButton/>
       <Container>
         <HeadingContainer>
           <HeadingTitle id="title"> {title} </HeadingTitle>
