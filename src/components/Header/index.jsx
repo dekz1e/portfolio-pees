@@ -46,7 +46,7 @@ const Header = () => {
           smooth={true}
           duration={500}
           onClick={() => scroll.scrollToTop()}
-          to="/#home"
+          to="home"
         >
           Mushouse
         </Logo>
@@ -58,6 +58,7 @@ const Header = () => {
               smooth={true}
               duration={500}
               onClick={() => scroll.scrollToTop()}
+              to="home"
             >
               strona główna
             </StyledLink>

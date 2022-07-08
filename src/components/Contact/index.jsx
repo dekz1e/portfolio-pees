@@ -84,7 +84,7 @@ const Contact = () => {
               <p>+48 XXX XXX XXX</p>
             </Details>
           </Wrapper>
-          <Wrapper name="contact">
+          <Wrapper name="contact" id="contact">
             <DataHeading>Jesteśmy też na</DataHeading>
             <Socials>
               <a
