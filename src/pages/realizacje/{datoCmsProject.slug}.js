@@ -18,7 +18,7 @@ import {
 	FooterWrapper,
 	FooterSectionHeader,
 	FooterTitle,
-} from './ProjectPage';
+} from '../../helpers/ProjectPage';
 import DesktopGallery from '../../components/ProjectGallery/DesktopGallery';
 import MobileGallery from '../../components/ProjectGallery/MobileGallery';
 
