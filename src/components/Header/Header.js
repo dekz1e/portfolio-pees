@@ -69,7 +69,6 @@ export const Item = styled.li`
 `;
 
 export const StyledLink = styled(sLink)`
-  cursor: pointer;
   text-decoration: none;
   color: ${({ theme, isOpen }) =>
     isOpen ? theme.colors.black : theme.colors.white};
@@ -103,7 +102,7 @@ export const HamburgerIcon = styled.div`
   background-color: ${({ theme, isOpen }) =>
     isOpen ? theme.colors.black : theme.colors.white};
   transition: 0.3s ease-in-out;
-  cursor: pointer;
+
   &::after,
   &::before {
     content: "";
@@ -133,7 +132,6 @@ export const HamburgerIcon = styled.div`
 `;
 
 export const Logo = styled(sLink)`
-  cursor: pointer;
   font-size: ${({ theme }) => theme.fs.s};
   font-family: ${({ theme }) => theme.ff.bai};
   font-weight: ${({ theme }) => theme.fw.b};

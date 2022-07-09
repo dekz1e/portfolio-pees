@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { GlobalStyles } from "../helpers/GlobalStyles";
 import { theme } from "../helpers/theme";
 import { ThemeProvider } from "styled-components";
+import Cursor from "../components/Cursor";
 import Header from "../components/Header";
 import Home from "../components/Home";
 import Contact from "../components/Contact";
@@ -38,6 +39,7 @@ const IndexPage = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <Cursor />
       <Header />
       {/* <StyledSmoothContainer id="smooth-content"> */}
       <Home />

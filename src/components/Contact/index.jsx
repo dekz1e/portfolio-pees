@@ -90,28 +90,32 @@ const Contact = () => {
               <a
                 href="https://facebook.com"
                 target="_blank"
-                className="contact__link"
+                className="contact__link link"
+                style={{ cursor: "none" }}
               >
                 Facebook
               </a>
               <a
                 href="https://twitter.com"
                 target="_blank"
-                className="contact__link"
+                className="contact__link link"
+                style={{ cursor: "none" }}
               >
                 Twitter
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
-                className="contact__link"
+                className="contact__link link"
+                style={{ cursor: "none" }}
               >
                 Instagram
               </a>
               <a
                 href="https://dribbble.com"
                 target="_blank"
-                className="contact__link"
+                className="contact__link link"
+                style={{ cursor: "none" }}
               >
                 Dribbble
               </a>

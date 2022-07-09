@@ -20,6 +20,7 @@ export const GlobalStyles = createGlobalStyle`
 html {
   height: 100%;
   font-size: 16px;
+  cursor: none;
   /* scroll-behavior: smooth; */
 }
 /* width */
@@ -56,6 +57,9 @@ html {
 }
 .no-scroll {
     overflow: hidden;
+}
+html {
+  cursor: none;
 }
 body {
   background-color: #6a11cb;
