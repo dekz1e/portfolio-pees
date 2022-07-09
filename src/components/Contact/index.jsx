@@ -77,7 +77,7 @@ const Contact = () => {
           <Wrapper>
             <DataHeading>Pozostańmy w kontakcie</DataHeading>
             <Details>
-              <p>email</p>
+              <p>kontakt@mushouse.pl</p>
               <p>Adrian</p>
               <p>+48 XXX XXX XXX</p>
               <p>Maciek</p>
