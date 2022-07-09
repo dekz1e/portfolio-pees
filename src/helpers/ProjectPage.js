@@ -20,11 +20,7 @@ export const HeadingContainer = styled.div`
 
 export const HeadingTitle = styled.h1`
 	width: 100%;
-	font-size: clamp(
-		${({ theme }) => theme.fs.xl},
-		calc(${({ theme }) => theme.fs.xl} * 1.25),
-		calc(${({ theme }) => theme.fs.xl} * 2)
-	);
+	font-size: calc(${({ theme }) => theme.fs.xl} * 2);
 	text-align: center;
 	color: transparent;
 	-webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
@@ -47,11 +43,21 @@ export const HeadingTitle = styled.h1`
 	@media screen and (min-width: 1280px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 3);
 	}
+
+	@media screen and (min-width: 1580px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 4);
+	}
+
+	@media screen and (min-width: 1800px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
+	}
 `;
 
 export const AboutWrapper = styled.div`
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 1rem;
 	text-transform: uppercase;
 `;

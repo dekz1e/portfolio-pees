@@ -21,7 +21,6 @@ html {
   height: 100%;
   font-size: 16px;
   cursor: none;
-  /* scroll-behavior: smooth; */
 }
 /* width */
 ::-webkit-scrollbar {
