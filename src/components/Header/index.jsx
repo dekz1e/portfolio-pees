@@ -58,6 +58,7 @@ const Header = () => {
 							smooth={true}
 							duration={500}
 							onClick={() => scroll.scrollToTop()}
+							
 						>
 							strona główna
 						</StyledLink>
@@ -68,6 +69,7 @@ const Header = () => {
 							spy={true}
 							smooth={true}
 							duration={500}
+							to="projects"
 						>
               realizacje
 						</StyledLink>
@@ -78,6 +80,7 @@ const Header = () => {
 							spy={true}
 							smooth={true}
 							duration={2500}
+							to="contact"
 						>
 							kontakt
 						</StyledLink>
