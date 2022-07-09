@@ -65,14 +65,14 @@ body {
   background-color: #6a11cb;
   background-size: 300% 100%;
   background-repeat: no-repeat;
-  background-image: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%),url(https://grainy-gradients.vercel.app/noise.svg);
+  background-image: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%);
+  background-attachment: fixed;
   animation: ${AnimateBG} 20s ease infinite;
   color: ${theme.colors.white};
   font-family: 'Poppins', sans-serif;
   position: relative; 
   overflow-x: hidden;
   margin: 0;
-  background-attachment: fixed;
   padding: 0 5vw;
 
   @media screen and (min-width: 1024px) {
