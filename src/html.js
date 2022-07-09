@@ -29,8 +29,8 @@ export default function HTML(props) {
 				<div id="fb-customer-chat" class="fb-customerchat"></div>
 				<script
 					dangerouslySetInnerHTML={{
-						__html: `           
-							var chatbox = document.getElementById('fb-customer-chat');
+						__html: `
+            var chatbox = document.getElementById('fb-customer-chat');
 							chatbox.setAttribute("page_id", "100307792759289");
 							chatbox.setAttribute("attribution", "biz_inbox");
             
@@ -48,11 +48,10 @@ export default function HTML(props) {
 								js.src = 'https://connect.facebook.net/pl_PL/sdk/xfbml.customerchat.js';
 								fjs.parentNode.insertBefore(js, fjs);
 							}(document, 'script', 'facebook-jssdk'));
-      
-      
-      `,
+        `,
 					}}
 				/>
+
 				{props.preBodyComponents}
 
 				<div
