@@ -30,7 +30,7 @@ export const Title = styled.p`
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    line-height: 1.1;
+    line-height: 1.2;
 
     @media screen and (min-width: 768px) {
       font-size: calc(${({ theme }) => theme.fs.xl}*6);

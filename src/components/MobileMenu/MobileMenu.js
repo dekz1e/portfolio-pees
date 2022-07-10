@@ -23,7 +23,7 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem 0;
+  gap: 2rem 0;
   list-style: none;
 `;
 
