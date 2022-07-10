@@ -73,7 +73,10 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0 5vw;
-
+  @media screen and (min-width: 768px) {
+    background-image: linear-gradient(145deg, #6a11cb 0%, #2575fc 100%),url(https://grainy-gradients.vercel.app/noise.svg);
+    animation: ${AnimateBG} 20s ease infinite;
+  }
   @media screen and (min-width: 1024px) {
     padding: 0 10vw;
   }
