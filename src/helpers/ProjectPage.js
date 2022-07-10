@@ -109,13 +109,16 @@ export const FooterTitle = styled.h1`
 	width: 100%;
 	word-break: break-all;
 	text-align: center;
-	font-size: calc(${({ theme }) => theme.fs.xl} * 4);
+	font-size: calc(${({ theme }) => theme.fs.xl} * 1.9);
 	font-family: ${({ theme }) => theme.ff.bm};
 	color: ${({ theme }) => theme.colors.white};
 	@media screen and (min-width: 600px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 3);
 	}
 	@media screen and (min-width: 768px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 4);
+	}
+	@media screen and (min-width: 1280px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 6);
 	}
 `;
