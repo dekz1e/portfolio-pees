@@ -77,7 +77,7 @@ const Contact = () => {
           <Wrapper>
             <DataHeading>Pozostańmy w kontakcie</DataHeading>
             <Details>
-              <p>email</p>
+              <p>kontakt@mushouse.pl</p>
               <p>Adrian</p>
               <p>+48 XXX XXX XXX</p>
               <p>Maciek</p>
@@ -88,7 +88,7 @@ const Contact = () => {
             <DataHeading>Jesteśmy też na</DataHeading>
             <Socials>
               <a
-                href="https://facebook.com"
+                href="https://facebook.com/mushousepl"
                 target="_blank"
                 className="contact__link link"
                 style={{ cursor: "none" }}
@@ -96,7 +96,7 @@ const Contact = () => {
                 Facebook
               </a>
               <a
-                href="https://twitter.com"
+                href="https://twitter.com/mushousepl"
                 target="_blank"
                 className="contact__link link"
                 style={{ cursor: "none" }}
@@ -104,7 +104,7 @@ const Contact = () => {
                 Twitter
               </a>
               <a
-                href="https://instagram.com"
+                href="https://instagram.com/mushousepl"
                 target="_blank"
                 className="contact__link link"
                 style={{ cursor: "none" }}
@@ -112,7 +112,7 @@ const Contact = () => {
                 Instagram
               </a>
               <a
-                href="https://dribbble.com"
+                href="https://dribbble.com/mushousepl"
                 target="_blank"
                 className="contact__link link"
                 style={{ cursor: "none" }}

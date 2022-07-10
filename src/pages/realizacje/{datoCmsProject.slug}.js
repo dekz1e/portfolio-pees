@@ -113,8 +113,8 @@ const Projekt = ({
         <MobileGallery gallery={gallery} />
         <DesktopGallery gallery={gallery} />
         <FooterWrapper id="footer">
-          <FooterSectionHeader id="footer-title">będzie</FooterSectionHeader>
-          <FooterTitle id="footer-description"> MAGIK </FooterTitle>
+          <FooterSectionHeader id="footer-title">Projekt stworzony przez</FooterSectionHeader>
+          <FooterTitle id="footer-description"> Mushouse </FooterTitle>
         </FooterWrapper>
       </Container>
     </ThemeProvider>

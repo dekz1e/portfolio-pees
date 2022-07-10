@@ -5,8 +5,8 @@ export const theme = {
 		grey: '#dddddd',
 		black: '#111',
 		blackAlt: '#333',
-		blue: '#0652c5',
-		pink: '#d4418e'
+		blue: '#2575fc',
+		pink: '#6a11cb'
 	},
 	fs: {
 		xs: '1em',

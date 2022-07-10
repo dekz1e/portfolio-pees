@@ -20,7 +20,7 @@ export const HeadingContainer = styled.div`
 
 export const HeadingTitle = styled.h1`
 	width: 100%;
-	font-size: calc(${({ theme }) => theme.fs.xl} * 3);
+	font-size: calc(${({ theme }) => theme.fs.xl} * 2);
 	text-align: center;
 	color: transparent;
 	-webkit-text-stroke: 1px ${({ theme }) => theme.colors.white};
@@ -31,23 +31,33 @@ export const HeadingTitle = styled.h1`
 	transform: translateY('150%');
 
 	@media screen and (min-width: 600px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 3.25);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2.25);
 	}
 
 	@media screen and (min-width: 768px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 3.5);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2.5);
 	}
 	@media screen and (min-width: 1024px) {
-		font-size: calc(${({ theme }) => theme.fs.xl} * 3.75);
+		font-size: calc(${({ theme }) => theme.fs.xl} * 2.75);
 	}
 	@media screen and (min-width: 1280px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 3);
+	}
+
+	@media screen and (min-width: 1580px) {
 		font-size: calc(${({ theme }) => theme.fs.xl} * 4);
+	}
+
+	@media screen and (min-width: 1800px) {
+		font-size: calc(${({ theme }) => theme.fs.xl} * 5);
 	}
 `;
 
 export const AboutWrapper = styled.div`
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	gap: 1rem;
 	text-transform: uppercase;
 `;
@@ -92,6 +102,7 @@ export const FooterWrapper = styled.section`
 export const FooterSectionHeader = styled(AboutSectionHeader)`
 	text-transform: uppercase;
 	color: ${({ theme }) => theme.colors.whiteAlt};
+	font-family: ${({ theme }) => theme.ff.bai};
 `;
 
 export const FooterTitle = styled.h1`
