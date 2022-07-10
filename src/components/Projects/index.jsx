@@ -20,10 +20,9 @@ const Projects = ({ nodes }) => {
       stagger: 0.1,
       scrollTrigger: {
         scrub: true,
-        trigger: "#projects",
+        trigger: headingRef.current,
         start: "top 90%",
-        end: "center 70%",
-        
+        end: "bottom 50%",
       },
     });
 
@@ -70,7 +69,7 @@ const Projects = ({ nodes }) => {
         <GalleryItems ref={galleryRef} id="gallery">
           {projectsList.map((item) => (
             <StyledLink
-            className="link"
+              className="link"
               to={`/realizacje/${item.slug}`}
               key={item.image.url}
               id="image"
