@@ -80,8 +80,7 @@ const Home = () => {
           <Paragraph>
             <SecondPartText id="second-text">
               Projektujemy oraz wdrażamy strony internetowe. Zajmujemy się
-              również tworzeniem różnego rodzaju materiałów graficznych.
-            </SecondPartText>
+              również tworzeniem różnego rodzaju materiałów graficznych.</SecondPartText>
           </Paragraph>
         </TextWrapper>
       </SecondPartWrapper>
