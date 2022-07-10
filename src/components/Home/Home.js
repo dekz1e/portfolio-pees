@@ -68,9 +68,11 @@ export const SecondPartWrapper = styled.div`
 `;
 
 export const SecondPartText = styled(Text)`
-  font-size: calc(${({ theme }) => theme.fs.xl} * 1.25);
+  font-size: calc(${({ theme }) => theme.fs.xl} * 1);
   word-break: break-all;
-
+  @media screen and (min-width: 550px) {
+    font-size: calc(${({ theme }) => theme.fs.xl} * 1.25);
+  }
   @media screen and (min-width: 768px) {
     font-size: calc(${({ theme }) => theme.fs.xl} * 1.5);
   }
