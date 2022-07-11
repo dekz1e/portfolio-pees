@@ -12,6 +12,7 @@ import gsap from "gsap-trial";
 import ScrollSmoother from "gsap-trial/ScrollSmoother";
 import ScrollTrigger from "gsap-trial/ScrollTrigger";
 import styled from "styled-components";
+import SEO from '../components/Seo'
 
 const StyledSmoothContainer = styled.div`
   padding: 0 5vw;
@@ -39,6 +40,7 @@ const IndexPage = ({
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <SEO />
       <Cursor />
       <Header />
       {/* <StyledSmoothContainer id="smooth-content"> */}
