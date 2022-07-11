@@ -1,7 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		title: `Mush House`,
-		titleTemplate: '%s - Produkty tworzone na miare',
+		title: `Mushouse`,
 		description: `Projektujemy oraz wdrażamy strony, sklepy oraz aplikacje
 		internetowe. Zajmujemy się również tworzeniem różnego rodzaju
 		materiałów graficznych.`,
@@ -22,8 +21,8 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-manifest',
 			options: {
-				name: 'Mush House - Produkty tworzone na essie!',
-				short_name: 'Mush House',
+				name: 'Mushouse',
+				short_name: 'Mushouse',
 				description: `Projektujemy oraz wdrażamy strony, sklepy oraz aplikacje
 				internetowe. Zajmujemy się również tworzeniem różnego rodzaju
 				materiałów graficznych.`,
