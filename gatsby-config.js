@@ -10,6 +10,7 @@ module.exports = {
 		twitterUsername: '@mushousepl',
 		facebookUsername: '@mushousepl',
 		instagramUsername: '@mushousepl',
+		image: 'src/images/icon2.png'
 	},
 	plugins: [
 		{
