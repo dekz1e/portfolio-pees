@@ -1,6 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `Mushouse`,
+		titleTemplate: '%s',
 		description: `Projektujemy oraz wdrażamy strony, sklepy oraz aplikacje
 		internetowe. Zajmujemy się również tworzeniem różnego rodzaju
 		materiałów graficznych.`,

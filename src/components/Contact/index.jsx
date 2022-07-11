@@ -79,9 +79,9 @@ const Contact = () => {
             <Details>
               <p>kontakt@mushouse.pl</p>
               <p>Adrian</p>
-              <p>+48 XXX XXX XXX</p>
+              <p>+48 694 983 792</p>
               <p>Maciek</p>
-              <p>+48 XXX XXX XXX</p>
+              <p>+48 507 677 888</p>
             </Details>
           </Wrapper>
           <Wrapper name="contact" id="contact">
