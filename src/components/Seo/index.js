@@ -15,6 +15,8 @@ const SEO = ({ title, description, image, article }) => {
 		siteUrl,
 		defaultImage,
 		twitterUsername,
+    instagramUsername,
+    facebookUsername,
 	} = site.siteMetadata;
 
 	const seo = {
@@ -91,6 +93,8 @@ const query = graphql`
 				siteUrl: url
 				defaultImage: image
 				twitterUsername
+        instagramUsername
+        facebookUsername
 			}
 		}
 	}
