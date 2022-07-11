@@ -3,6 +3,9 @@ import { theme } from "../../helpers/theme";
 
 export const Container = styled.div`
   display: none;
+  position: fixed;
+  background-color: blue;
+  z-index: 999;
   @media screen and (min-width: 768px) {
     display: block;
   }

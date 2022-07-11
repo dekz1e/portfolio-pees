@@ -16,8 +16,9 @@ const Cursor = () => {
     });
 
     document.addEventListener("mousemove", function (e) {
-      let x = e.pageX,
-        y = e.pageY;
+      let x = e.clientX-(window.innerWidth/9.5),
+        y = e.clientY;
+      console.log(window.innerWidth/5);
       worm.pos[0] = { x: x, y: y };
 
       for (let i = 0; i < worm.segs.length - 1; i++) {
@@ -34,8 +35,7 @@ const Cursor = () => {
 
       worm.pos.forEach((p, i) => {
         let seg = worm.segs[i];
-        seg.style.left = p.x - seg.offsetWidth * 0.1 + "px";
-        seg.style.top = p.y - seg.offsetHeight * 0.1 + "px";
+        seg.style.transform = `translate3d(${p.x}px, ${p.y}px, 0)`;
       });
     });
 

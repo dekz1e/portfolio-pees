@@ -57,9 +57,6 @@ html {
 .no-scroll {
     overflow: hidden;
 }
-html {
-  cursor: none;
-}
 body {
   color: ${theme.colors.white};
   font-family: 'Poppins', sans-serif;
