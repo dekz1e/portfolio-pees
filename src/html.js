@@ -21,7 +21,6 @@ export default function HTML(props) {
 					href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700&family=Blaka&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600;6..96,700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
 					rel="stylesheet"
 				></link>
-				<title>Mush House - Produkty tworzone na essie!</title>
 				{props.headComponents}
 			</head>
 			<body {...props.bodyAttributes}>
