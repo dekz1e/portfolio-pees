@@ -115,7 +115,7 @@ export const Socials = styled.div`
     transition: 0.2s ease-in-out;
 
     &:hover {
-      color: ${({ theme }) => theme.colors.whiteAlt};
+      color: ${({ theme }) => theme.colors.black};
     }
   }
 `;
