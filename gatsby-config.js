@@ -19,7 +19,7 @@ module.exports = {
 				internetowe. Zajmujemy się również tworzeniem różnego rodzaju
 				materiałów graficznych.`,
 				lang: 'pl',
-				icon: './src/images/icon.png',
+				icon: './src/images/icon2.png',
 				start_url: '/',
 			},
 		},
