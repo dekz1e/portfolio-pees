@@ -47,6 +47,14 @@
 	font-family: 'Bai Jamjuree', sans-serif;
 }
 
+.panel-text span{
+	font-size: 1rem;
+	letter-spacing: 2px;
+	color: #ccc;
+	font-family: 'Space Grotesk', sans-serif;
+	font-weight: 400;
+}
+
 .panel-text.blue-text {
 	color: blue;
 }

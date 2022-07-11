@@ -18,6 +18,10 @@ export const HeadingContainer = styled.div`
 	align-items: center;
 `;
 
+export const HeadingType = styled.span`
+	width: 100%;
+`;
+
 export const HeadingTitle = styled.h1`
 	width: 100%;
 	font-size: calc(${({ theme }) => theme.fs.xl} * 2);

@@ -139,6 +139,7 @@ export const query = graphql`
         filename
         url
         title
+        alt
       }
     }
   }

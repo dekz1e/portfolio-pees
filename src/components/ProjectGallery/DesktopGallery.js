@@ -1,64 +1,64 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import gsap from 'gsap-trial';
 import '../../pages/realizacje/style.css';
 import ScrollTrigger from 'gsap-trial/ScrollTrigger';
 
-function DesktopGallery({gallery}) {
+function DesktopGallery({ gallery }) {
 	useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
+		gsap.registerPlugin(ScrollTrigger);
 
-    gsap.set(".panel", {
-      zIndex: (i, target, targets) => targets.length - i,
-    });
+		gsap.set('.panel', {
+			zIndex: (i, target, targets) => targets.length - i,
+		});
 
-    let images = gsap.utils.toArray(".panel:not(:last-child)");
+		let images = gsap.utils.toArray('.panel:not(:last-child)');
 
-    images.forEach((image, i) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "section.black",
-          start: () => "top -" + window.innerHeight * (i + 0.5),
-          end: () => "+=" + window.innerHeight,
-          scrub: true,
-          toggleActions: "play none reverse none",
-        },
-      });
+		images.forEach((image, i) => {
+			let tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: 'section.black',
+					start: () => 'top -' + window.innerHeight * (i + 0.5),
+					end: () => '+=' + window.innerHeight,
+					scrub: true,
+					toggleActions: 'play none reverse none',
+				},
+			});
 
-      tl.to(image, {
-        height: 0,
-      });
-    });
+			tl.to(image, {
+				height: 0,
+			});
+		});
 
-    gsap.set(".panel-text", {
-      zIndex: (i, target, targets) => targets.length - i,
-    });
+		gsap.set('.panel-text', {
+			zIndex: (i, target, targets) => targets.length - i,
+		});
 
-    let texts = gsap.utils.toArray(".panel-text");
+		let texts = gsap.utils.toArray('.panel-text');
 
-    texts.forEach((text, i) => {
-      let tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: "section.black",
-          start: () => "top -" + window.innerHeight * i,
-          end: () => "+=" + window.innerHeight,
-          scrub: true,
-        },
-      });
+		texts.forEach((text, i) => {
+			let tl = gsap.timeline({
+				scrollTrigger: {
+					trigger: 'section.black',
+					start: () => 'top -' + window.innerHeight * i,
+					end: () => '+=' + window.innerHeight,
+					scrub: true,
+				},
+			});
 
-      tl.to(text, {
-        duration: 0.33,
-        opacity: 1,
-        y: "50%",
-      }).to(
-        text,
-        {
-          duration: 0.33,
-          opacity: 0,
-          y: "0%",
-        },
-        0.66
-      );
-    });
+			tl.to(text, {
+				duration: 0.33,
+				opacity: 1,
+				y: '50%',
+			}).to(
+				text,
+				{
+					duration: 0.33,
+					opacity: 0,
+					y: '0%',
+				},
+				0.66
+			);
+		});
 
 		gsap.from('.black', {
 			duration: 0.2,
@@ -86,7 +86,10 @@ function DesktopGallery({gallery}) {
 			<section className="black">
 				<div className="text-wrap">
 					{gallery.map((item) => (
-						<div className="panel-text">{item.title}</div>
+						<div className="panel-text">
+							<span>{item.alt}</span>
+							<h2>{item.title}</h2>
+						</div>
 					))}
 				</div>
 				<div className="p-wrap">
