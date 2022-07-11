@@ -1,7 +1,7 @@
 module.exports = {
 	siteMetadata: {
 		title: `portfolio-pees`,
-		siteUrl: `https://www.yourdomain.tld`,
+		siteUrl: `https://www.mushouse.pl`,
 	},
 	plugins: [
 		{
